@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="@string/menu_home"/>
+        <item
+            android:id="@+id/nav_navigation"
+            android:icon="@drawable/ic_navigation_black_24dp"
+            android:title="@string/menu_navigation" />
+        <item
+            android:id="@+id/nav_system"
+            android:icon="@drawable/ic_system_black_24dp"
+            android:title="@string/menu_system"/>
+        <item
+            android:id="@+id/nav_collect"
+            android:icon="@drawable/ic_collect_black_24dp"
+            android:title="@string/menu_collect"/>
+        <item
+            android:id="@+id/nav_chat"
+            android:icon="@drawable/ic_chat_black_24dp"
+            android:title="@string/menu_chat"/>
+        <item
+            android:id="@+id/nav_classification"
+            android:icon="@drawable/ic_classification_black_24dp"
+            android:title="@string/menu_classification"/>
+    </group>
+</menu>

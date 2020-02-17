@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">LearningForums</string>
+    <string name="main_title">LearningForums</string>
+    <string name="menu_home">首页</string>
+    <string name="menu_navigation">导航</string>
+    <string name="menu_system">体系</string>
+    <string name="menu_collect">收藏</string>
+    <string name="menu_chat">公众号</string>
+    <string name="menu_classification">项目分类</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">这是home的fragment</string>
 </resources>
