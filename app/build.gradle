@@ -50,7 +50,7 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:${dependencies.retrofit}"
     implementation "com.squareup.retrofit2:converter-gson:${dependencies.retrofit}"
     implementation "com.github.bumptech.glide:glide:${dependencies.glide}"
-    implementation "com.github.bumptech.glide:compiler:${dependencies.glide}"
+    annotationProcessor "com.github.bumptech.glide:compiler:${dependencies.glide}"
     implementation "com.blankj:utilcodex:${dependencies.utilCode}"
     debugImplementation "com.squareup.leakcanary:leakcanary-android:${dependencies.leakCanary}"
     releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:${dependencies.leakCanary}"
