@@ -23,7 +23,7 @@ public interface HomePageService {
 
     /**
      * 获取首页文章列表
-     *
+     * <p>
      * @param page 页码，从零开始
      */
     @GET("article/list/{page}/json")

@@ -10,7 +10,7 @@ import com.xiayang.learningforums.network.service.HomePageService;
 
 import java.util.List;
 
-import retrofit2.Callback;
+import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -30,24 +30,24 @@ public final class NetworkManager {
         return Holder.INSTANCE;
     }
 
-    public void getHomePageArticleList(int page, Callback<Response<HomePageArticleList>> callback) {
-        homePageService.getHomePageArticleList(page).enqueue(callback);
+    public Call<Response<HomePageArticleList>> getHomePageArticleList(int page) {
+        return homePageService.getHomePageArticleList(page);
     }
 
-    public void getHomePageBanners(Callback<Response<List<HomePageBanner>>> callback) {
-        homePageService.getHomePageBanners().enqueue(callback);
+    public Call<Response<List<HomePageBanner>>> getHomePageBanners() {
+        return homePageService.getHomePageBanners();
     }
 
-    public void getCommonWebsite(Callback<Response<List<CommonWebsite>>> callback) {
-        homePageService.getCommonWebsites().enqueue(callback);
+    public Call<Response<List<CommonWebsite>>> getCommonWebsite() {
+        return homePageService.getCommonWebsites();
     }
 
-    public void getHotkeys(Callback<Response<List<HotKey>>> callback) {
-        homePageService.getHotKeys().enqueue(callback);
+    public Call<Response<List<HotKey>>> getHotkeys() {
+        return homePageService.getHotKeys();
     }
 
-    public void getTopArticles(Callback<Response<List<Article>>> callback) {
-        homePageService.getTopArticles().enqueue(callback);
+    public Call<Response<List<Article>>> getTopArticles() {
+        return homePageService.getTopArticles();
     }
 
     private NetworkManager() {
