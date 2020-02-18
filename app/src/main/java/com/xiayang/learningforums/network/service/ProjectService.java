@@ -34,5 +34,8 @@ public interface ProjectService {
      * @param cid  分类的id，上面项目分类接口
      */
     @GET("project/list/{page}/json?cid={cid}")
-    Call<Response<ArticleList>> getProjectDatas(@Path("page") int page, @Path("cid") int cid);
+    Call<Response<ArticleList>> getProjectDatas(
+            @Path("page") int page,
+            @Path("cid") int cid
+    );
 }

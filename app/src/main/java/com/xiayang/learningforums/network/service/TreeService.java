@@ -32,7 +32,10 @@ public interface TreeService {
      * @param cid   分类的id，上述二级目录的id
      */
     @GET("article/list/{page}/json?cid={cid}")
-    Call<Response<ArticleList>> getTreeArticles(@Path("page") int page, @Path("cid") int cid);
+    Call<Response<ArticleList>> getTreeArticles(
+            @Path("page") int page,
+            @Path("cid") int cid
+    );
 
     /**
      * 按照作者昵称搜索文章
@@ -41,5 +44,8 @@ public interface TreeService {
      * @param author 作者昵称，不支持模糊匹配。
      */
     @GET("article/list/{page}/json?author={author}")
-    Call<Response<ArticleList>> getAuthorArticles(@Path("page") int page, @Path("author") String author);
+    Call<Response<ArticleList>> getAuthorArticles(
+            @Path("page") int page,
+            @Path("author") String author
+    );
 }
