@@ -1,16 +1,7 @@
 package com.xiayang.learningforums.network;
 
-import com.xiayang.learningforums.bean.Response;
-import com.xiayang.learningforums.bean.homepage.Article;
-import com.xiayang.learningforums.bean.homepage.CommonWebsite;
-import com.xiayang.learningforums.bean.homepage.HomePageArticleList;
-import com.xiayang.learningforums.bean.homepage.HomePageBanner;
-import com.xiayang.learningforums.bean.homepage.HotKey;
 import com.xiayang.learningforums.network.service.HomePageService;
 
-import java.util.List;
-
-import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -30,32 +21,16 @@ public final class NetworkManager {
         return Holder.INSTANCE;
     }
 
-    public Call<Response<HomePageArticleList>> getHomePageArticleList(int page) {
-        return homePageService.getHomePageArticleList(page);
-    }
-
-    public Call<Response<List<HomePageBanner>>> getHomePageBanners() {
-        return homePageService.getHomePageBanners();
-    }
-
-    public Call<Response<List<CommonWebsite>>> getCommonWebsite() {
-        return homePageService.getCommonWebsites();
-    }
-
-    public Call<Response<List<HotKey>>> getHotkeys() {
-        return homePageService.getHotKeys();
-    }
-
-    public Call<Response<List<Article>>> getTopArticles() {
-        return homePageService.getTopArticles();
-    }
-
     private NetworkManager() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         homePageService = retrofit.create(HomePageService.class);
+    }
+
+    public HomePageService getHomePageService() {
+        return homePageService;
     }
 
     private static class Holder {
