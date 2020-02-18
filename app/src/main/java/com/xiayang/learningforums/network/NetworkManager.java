@@ -2,6 +2,7 @@ package com.xiayang.learningforums.network;
 
 import com.xiayang.learningforums.network.service.HomePageService;
 import com.xiayang.learningforums.network.service.NavigationService;
+import com.xiayang.learningforums.network.service.ProjectService;
 import com.xiayang.learningforums.network.service.TreeService;
 
 import retrofit2.Retrofit;
@@ -20,6 +21,7 @@ public final class NetworkManager {
     private HomePageService homePageService;
     private TreeService treeService;
     private NavigationService navigationService;
+    private ProjectService projectService;
 
     public static NetworkManager getInstance() {
         return Holder.INSTANCE;
@@ -32,6 +34,8 @@ public final class NetworkManager {
                 .build();
         homePageService = retrofit.create(HomePageService.class);
         treeService = retrofit.create(TreeService.class);
+        navigationService = retrofit.create(NavigationService.class);
+        projectService = retrofit.create(ProjectService.class);
     }
 
     public HomePageService getHomePageService() {
@@ -44,6 +48,10 @@ public final class NetworkManager {
 
     public NavigationService getNavigationService() {
         return navigationService;
+    }
+
+    public ProjectService getProjectService() {
+        return projectService;
     }
 
     private static class Holder {

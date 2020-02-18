@@ -1,6 +1,4 @@
-package com.xiayang.learningforums.bean.tree;
-
-import com.xiayang.learningforums.bean.Article;
+package com.xiayang.learningforums.bean;
 
 import java.util.List;
 
@@ -10,7 +8,7 @@ import java.util.List;
  * Date: 2020/2/18
  * Author: aaronzzxup@gmail.com
  */
-public class TreeArticle {
+public final class TreeArticle {
 
     /**
      * curPage : 1

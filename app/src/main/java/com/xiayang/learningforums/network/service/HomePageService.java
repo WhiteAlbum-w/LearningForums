@@ -2,10 +2,10 @@ package com.xiayang.learningforums.network.service;
 
 import com.xiayang.learningforums.bean.Article;
 import com.xiayang.learningforums.bean.ArticleList;
+import com.xiayang.learningforums.bean.CommonWebsite;
+import com.xiayang.learningforums.bean.HomePageBanner;
+import com.xiayang.learningforums.bean.HotKey;
 import com.xiayang.learningforums.bean.Response;
-import com.xiayang.learningforums.bean.homepage.CommonWebsite;
-import com.xiayang.learningforums.bean.homepage.HomePageBanner;
-import com.xiayang.learningforums.bean.homepage.HotKey;
 
 import java.util.List;
 

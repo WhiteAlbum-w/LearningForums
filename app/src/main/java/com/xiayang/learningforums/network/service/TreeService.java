@@ -2,7 +2,7 @@ package com.xiayang.learningforums.network.service;
 
 import com.xiayang.learningforums.bean.ArticleList;
 import com.xiayang.learningforums.bean.Response;
-import com.xiayang.learningforums.bean.tree.TreeData;
+import com.xiayang.learningforums.bean.TreeData;
 
 import java.util.List;
 
@@ -29,10 +29,10 @@ public interface TreeService {
      * 知识体系下的文章
      *
      * @param page 页码
-     * @param id   分类的id，上述二级目录的id
+     * @param cid   分类的id，上述二级目录的id
      */
-    @GET("article/list/{page}/json?cid={id}")
-    Call<Response<ArticleList>> getTreeArticles(@Path("page") int page, @Path("id") int id);
+    @GET("article/list/{page}/json?cid={cid}")
+    Call<Response<ArticleList>> getTreeArticles(@Path("page") int page, @Path("cid") int cid);
 
     /**
      * 按照作者昵称搜索文章

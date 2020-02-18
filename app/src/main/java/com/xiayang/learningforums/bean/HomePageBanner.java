@@ -1,4 +1,4 @@
-package com.xiayang.learningforums.bean.homepage;
+package com.xiayang.learningforums.bean;
 
 /**
  * 首页 Banner
