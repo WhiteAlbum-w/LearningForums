@@ -1,4 +1,4 @@
-package com.xiayang.learningforums.nav_ui;
+package com.xiayang.learningforums.frag;
 
 
 import android.os.Bundle;
@@ -15,10 +15,10 @@ import com.xiayang.learningforums.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CollectFragment extends Fragment {
+public class ChatFragment extends Fragment {
 
 
-    public CollectFragment() {
+    public ChatFragment() {
         // Required empty public constructor
     }
 
@@ -27,7 +27,7 @@ public class CollectFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_collect, container, false);
+        return inflater.inflate(R.layout.fragment_chat, container, false);
     }
 
 }

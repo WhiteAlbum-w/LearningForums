@@ -3,13 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".frag.SystemFragment">
+    tools:context=".frag.QuestionFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="这是system的fragment"
-        android:textSize="30sp"/>
+        android:text="44444444444" />
 
 </FrameLayout>

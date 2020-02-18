@@ -9,32 +9,32 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.xiayang.learningforums.nav_ui.HomeFragment"
+        android:name="com.xiayang.learningforums.frag.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home"/>
     <fragment
         android:id="@+id/nav_navigation"
-        android:name="com.xiayang.learningforums.nav_ui.NavigationFragment"
+        android:name="com.xiayang.learningforums.frag.NavigationFragment"
         android:label="@string/menu_navigation"
         tools:layout="@layout/fragment_navigation"/>
     <fragment
         android:id="@+id/nav_system"
-        android:name="com.xiayang.learningforums.nav_ui.SystemFragment"
+        android:name="com.xiayang.learningforums.frag.SystemFragment"
         android:label="@string/menu_system"
         tools:layout="@layout/fragment_system"/>
     <fragment
         android:id="@+id/nav_collect"
-        android:name="com.xiayang.learningforums.nav_ui.CollectFragment"
+        android:name="com.xiayang.learningforums.frag.CollectFragment"
         android:label="@string/menu_collect"
         tools:layout="@layout/fragment_collect"/>
     <fragment
         android:id="@+id/nav_chat"
-        android:name="com.xiayang.learningforums.nav_ui.ChatFragment"
+        android:name="com.xiayang.learningforums.frag.ChatFragment"
         android:label="@string/menu_collect"
         tools:layout="@layout/fragment_chat"/>
     <fragment
         android:id="@+id/nav_classification"
-        android:name="com.xiayang.learningforums.nav_ui.ClassificationFragment"
+        android:name="com.xiayang.learningforums.frag.ClassificationFragment"
         android:label="@string/menu_classification"
         tools:layout="@layout/fragment_classification"/>
 </navigation>

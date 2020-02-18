@@ -1,4 +1,4 @@
-package com.xiayang.learningforums.nav_ui;
+package com.xiayang.learningforums.frag;
 
 
 import android.os.Bundle;
@@ -15,10 +15,10 @@ import com.xiayang.learningforums.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SystemFragment extends Fragment {
+public class SquareFragment extends Fragment {
 
 
-    public SystemFragment() {
+    public SquareFragment() {
         // Required empty public constructor
     }
 
@@ -27,7 +27,7 @@ public class SystemFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_system, container, false);
+        return inflater.inflate(R.layout.fragment_square, container, false);
     }
 
 }
