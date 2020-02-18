@@ -1,6 +1,8 @@
 package com.xiayang.learningforums.bean.homepage;
 
 /**
+ * 搜索热词
+ * <p>
  * Date: 2020/2/17
  * Author: aaronzzxup@gmail.com
  */

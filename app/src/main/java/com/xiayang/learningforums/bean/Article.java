@@ -3,6 +3,8 @@ package com.xiayang.learningforums.bean;
 import java.util.List;
 
 /**
+ * 文章
+ * <p>
  * Date: 2020/2/17
  * Author: aaronzzxup@gmail.com
  */
