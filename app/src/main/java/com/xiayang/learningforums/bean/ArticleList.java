@@ -1,4 +1,4 @@
-package com.xiayang.learningforums.bean.homepage;
+package com.xiayang.learningforums.bean;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import java.util.List;
  * Date: 2020/2/17
  * Author: aaronzzxup@gmail.com
  */
-public final class HomePageArticleList {
+public final class ArticleList {
 
     /**
      * curPage : 1

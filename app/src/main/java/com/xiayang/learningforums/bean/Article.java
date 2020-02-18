@@ -1,4 +1,4 @@
-package com.xiayang.learningforums.bean.homepage;
+package com.xiayang.learningforums.bean;
 
 import java.util.List;
 
@@ -76,4 +76,14 @@ public final class Article {
     public int visible;
     public int zan;
     public List<Tags> tags;
+
+    public class Tags {
+
+        /**
+         * name : 公众号
+         * url : /wxarticle/list/408/1
+         */
+        public String name;
+        public String url;
+    }
 }

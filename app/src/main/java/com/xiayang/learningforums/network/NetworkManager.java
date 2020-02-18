@@ -1,6 +1,7 @@
 package com.xiayang.learningforums.network;
 
 import com.xiayang.learningforums.network.service.HomePageService;
+import com.xiayang.learningforums.network.service.TreeService;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -16,6 +17,7 @@ public final class NetworkManager {
     private static final String BASE_URL = "https://www.wanandroid.com/";
 
     private HomePageService homePageService;
+    private TreeService treeService;
 
     public static NetworkManager getInstance() {
         return Holder.INSTANCE;
@@ -27,10 +29,15 @@ public final class NetworkManager {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         homePageService = retrofit.create(HomePageService.class);
+        treeService = retrofit.create(TreeService.class);
     }
 
     public HomePageService getHomePageService() {
         return homePageService;
+    }
+
+    public TreeService getTreeService() {
+        return treeService;
     }
 
     private static class Holder {
