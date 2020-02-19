@@ -1,5 +1,8 @@
 package com.xiayang.learningforums;
 
+import android.os.Bundle;
+import android.view.MenuItem;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,9 +12,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.viewpager.widget.ViewPager;
-
-import android.os.Bundle;
-import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
@@ -27,16 +27,16 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayoutMain;
-    TabLayout tabLayoutMain;
-    ViewPager vpMain;
-    List<Fragment> fragmentList;  //显示 ViewPager 内容得集合
+    private TabLayout tabLayoutMain;
+    private ViewPager vpMain;
+    private List<Fragment> fragmentList; //显示 ViewPager 内容得集合
     private AppBarConfiguration appBarConfiguration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initView();  //初始化控件函数
+        initView(); //初始化控件函数
     }
 
     //  初始化控件函数

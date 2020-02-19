@@ -21,7 +21,7 @@ import java.util.List;
 public class ItemHomeAdapter extends RecyclerView.Adapter<ItemHomeAdapter.HomePageViewHolder> {
 
     private Context context;
-    List<Article> datas;
+    private List<Article> datas;
 
     ItemHomeAdapter(Context context, List<Article> datas) {
         this.context = context;
@@ -31,9 +31,8 @@ public class ItemHomeAdapter extends RecyclerView.Adapter<ItemHomeAdapter.HomePa
     @NonNull
     @Override
     public HomePageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_home_page, parent,false);
-        HomePageViewHolder holder = new HomePageViewHolder(view);
-        return holder;
+        View view = LayoutInflater.from(context).inflate(R.layout.recycler_item_home_page, parent, false);
+        return new HomePageViewHolder(view);
     }
 
     @SuppressLint("SetTextI18n")
@@ -42,6 +41,8 @@ public class ItemHomeAdapter extends RecyclerView.Adapter<ItemHomeAdapter.HomePa
         Article article = datas.get(position);
         holder.tvTitle.setText(article.title);
         if (article.author == null) {
+            // Context 的 getString 方法有 2 个参数的重载，查下它的用法，
+            // 可以解决类中字符串硬编码的问题。
             holder.tvAuthor.setText("作者:" + article.shareUser);
         } else {
             holder.tvAuthor.setText("作者:" + article.author);
@@ -57,7 +58,8 @@ public class ItemHomeAdapter extends RecyclerView.Adapter<ItemHomeAdapter.HomePa
 
     class HomePageViewHolder extends RecyclerView.ViewHolder {
         TextView tvTitle,tvAuthor,tvClassify,tvTime;
-        public HomePageViewHolder(@NonNull View itemView) {
+
+        HomePageViewHolder(@NonNull View itemView) {
             super(itemView);
             tvTitle = itemView.findViewById(R.id.item_home_page_title);
             tvAuthor = itemView.findViewById(R.id.item_home_page_author);
