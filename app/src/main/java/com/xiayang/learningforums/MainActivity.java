@@ -7,9 +7,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.ui.AppBarConfiguration;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -26,13 +26,11 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    DrawerLayout drawerLayoutMain;
-    NavigationView navMain;
-    Toolbar toolbarMain;
+    private DrawerLayout drawerLayoutMain;
     TabLayout tabLayoutMain;
-    ViewPager vPMain;
-
-    List<Fragment> fragmentList;
+    ViewPager vpMain;
+    List<Fragment> fragmentList;  //显示 ViewPager 内容得集合
+    private AppBarConfiguration appBarConfiguration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     //  初始化控件函数
     private void initView() {
-        toolbarMain = findViewById(R.id.main_bar);
+        Toolbar toolbarMain = findViewById(R.id.main_bar);
         toolbarMain.setTitle("");
         setSupportActionBar(toolbarMain);
         tabLayoutMain = findViewById(R.id.tab_layout);
@@ -52,35 +50,39 @@ public class MainActivity extends AppCompatActivity {
         fragmentList.add(new ProjectFragment());
         fragmentList.add(new SquareFragment());
         fragmentList.add(new QuestionFragment());
-        vPMain = findViewById(R.id.view_pager);
+        vpMain = findViewById(R.id.view_pager);
         //        ViewPager 得适配器
         MyFragmentPageAdapter fragmentPageAdapter = new MyFragmentPageAdapter(getSupportFragmentManager(), this, fragmentList);
         //  设置适配器
-        vPMain.setAdapter(fragmentPageAdapter);
+        vpMain.setAdapter(fragmentPageAdapter);
         //  tab 关联 ViewPager
-        tabLayoutMain.setupWithViewPager(vPMain);
-        drawerLayoutMain = findViewById(R.id.drawer_layout);
+        tabLayoutMain.setupWithViewPager(vpMain);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(R.drawable.ic_main_home_black_24dp);
         }
-
-        navMain = findViewById(R.id.navigation_view);
+        drawerLayoutMain = findViewById(R.id.drawer_layout);
+        NavigationView navMain = findViewById(R.id.navigation_view);
         navMain.setCheckedItem(R.id.nav_home);
         //  导航栏跳转得方法   还没写
-        navMain.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.nav_navigation:
-//                        startActivity(new Intent());
-                        break;
-                }
-
-                return true;
-            }
-        });
+//        navMain.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                switch (item.getItemId()) {
+//                    case R.id.nav_home:
+//                        Intent intent = new Intent(MainActivity.this, NewsActivity.class);
+//                        intent.putExtra("id",item.getItemId());
+//                        startActivity(intent);
+//                        break;
+//                    case R.id.nav_navigation:
+////                        drawerLayoutMain.openDrawer(R.layout.fragment_navigation);
+//                        break;
+//                }
+//                drawerLayoutMain.closeDrawer(GravityCompat.START);
+//                return true;
+//            }
+//        });
     }
 
 //    Toolbar 上面得控件点击事件

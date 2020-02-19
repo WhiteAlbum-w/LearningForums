@@ -30,6 +30,6 @@
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
-   <include layout="@layout/tab_layout"/>
+        <include layout="@layout/tab_layout"/>
 
 </LinearLayout>

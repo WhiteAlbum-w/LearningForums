@@ -17,11 +17,9 @@ import com.xiayang.learningforums.R;
  */
 public class SystemFragment extends Fragment {
 
-
     public SystemFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -16,11 +16,9 @@ import com.xiayang.learningforums.R;
  */
 public class QuestionFragment extends Fragment {
 
-
     public QuestionFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

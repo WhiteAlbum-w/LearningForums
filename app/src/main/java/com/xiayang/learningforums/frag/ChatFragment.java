@@ -17,11 +17,9 @@ import com.xiayang.learningforums.R;
  */
 public class ChatFragment extends Fragment {
 
-
     public ChatFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

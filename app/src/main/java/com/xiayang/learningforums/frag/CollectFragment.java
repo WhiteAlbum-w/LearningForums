@@ -17,11 +17,9 @@ import com.xiayang.learningforums.R;
  */
 public class CollectFragment extends Fragment {
 
-
     public CollectFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -9,15 +9,17 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import com.xiayang.learningforums.R;
+
 import java.util.List;
 
 /**
- * @author Aaron aaronzzxup@gmail.com
+ * @author xiayang1024 wfy19961024@gmail.com
  */
 public class MyFragmentPageAdapter extends FragmentPagerAdapter {
 
-    Context context;
-    List<Fragment> fragmentList;
+    private Context context;
+    private List<Fragment> fragmentList;
 
     public MyFragmentPageAdapter(@NonNull FragmentManager fm, Context context,List<Fragment> fragmentList) {
         super(fm);
@@ -42,13 +44,13 @@ public class MyFragmentPageAdapter extends FragmentPagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         if (position == 0) {
-            return "主页";
+            return context.getString(R.string.tab_home);
         } else if(position == 1) {
-            return "项目";
+            return context.getString(R.string.tab_project);
         } else if (position == 2) {
-            return "广场";
+            return context.getString(R.string.tab_square);
         } else {
-            return "问答";
+            return context.getString(R.string.tab_question);
         }
     }
 }
