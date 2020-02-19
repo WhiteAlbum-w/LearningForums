@@ -16,11 +16,9 @@ import com.xiayang.learningforums.R;
  */
 public class ClassificationFragment extends Fragment {
 
-
     public ClassificationFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

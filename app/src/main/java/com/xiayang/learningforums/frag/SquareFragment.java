@@ -17,11 +17,9 @@ import com.xiayang.learningforums.R;
  */
 public class SquareFragment extends Fragment {
 
-
     public SquareFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

@@ -6,7 +6,7 @@ package com.xiayang.learningforums.bean;
  * Date: 2020/2/17
  * Author: aaronzzxup@gmail.com
  */
-public final class Response<T> {
+public final class Result<T> {
 
     public int errorCode;
     public String errorMsg;

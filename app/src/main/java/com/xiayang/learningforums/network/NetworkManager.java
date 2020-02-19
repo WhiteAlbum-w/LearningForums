@@ -1,6 +1,6 @@
 package com.xiayang.learningforums.network;
 
-import com.xiayang.learningforums.bean.Response;
+import com.xiayang.learningforums.bean.Result;
 import com.xiayang.learningforums.bean.homepage.Article;
 import com.xiayang.learningforums.bean.homepage.CommonWebsite;
 import com.xiayang.learningforums.bean.homepage.HomePageArticleList;
@@ -30,23 +30,23 @@ public final class NetworkManager {
         return Holder.INSTANCE;
     }
 
-    public Call<Response<HomePageArticleList>> getHomePageArticleList(int page) {
+    public Call<Result<HomePageArticleList>> getHomePageArticleList(int page) {
         return homePageService.getHomePageArticleList(page);
     }
 
-    public Call<Response<List<HomePageBanner>>> getHomePageBanners() {
+    public Call<Result<List<HomePageBanner>>> getHomePageBanners() {
         return homePageService.getHomePageBanners();
     }
 
-    public Call<Response<List<CommonWebsite>>> getCommonWebsite() {
+    public Call<Result<List<CommonWebsite>>> getCommonWebsite() {
         return homePageService.getCommonWebsites();
     }
 
-    public Call<Response<List<HotKey>>> getHotkeys() {
+    public Call<Result<List<HotKey>>> getHotkeys() {
         return homePageService.getHotKeys();
     }
 
-    public Call<Response<List<Article>>> getTopArticles() {
+    public Call<Result<List<Article>>> getTopArticles() {
         return homePageService.getTopArticles();
     }
 

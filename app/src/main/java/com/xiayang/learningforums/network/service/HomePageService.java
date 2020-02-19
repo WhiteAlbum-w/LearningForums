@@ -1,6 +1,6 @@
 package com.xiayang.learningforums.network.service;
 
-import com.xiayang.learningforums.bean.Response;
+import com.xiayang.learningforums.bean.Result;
 import com.xiayang.learningforums.bean.homepage.Article;
 import com.xiayang.learningforums.bean.homepage.CommonWebsite;
 import com.xiayang.learningforums.bean.homepage.HomePageArticleList;
@@ -27,29 +27,29 @@ public interface HomePageService {
      * @param page 页码，从零开始
      */
     @GET("article/list/{page}/json")
-    Call<Response<HomePageArticleList>> getHomePageArticleList(@Path("page") int page);
+    Call<Result<HomePageArticleList>> getHomePageArticleList(@Path("page") int page);
 
     /**
      * 获取首页 Banner
      */
     @GET("banner/json")
-    Call<Response<List<HomePageBanner>>> getHomePageBanners();
+    Call<Result<List<HomePageBanner>>> getHomePageBanners();
 
     /**
      * 获取常用网站
      */
     @GET("friend/json")
-    Call<Response<List<CommonWebsite>>> getCommonWebsites();
+    Call<Result<List<CommonWebsite>>> getCommonWebsites();
 
     /**
      * 获取搜索热词
      */
     @GET("hotkey/json")
-    Call<Response<List<HotKey>>> getHotKeys();
+    Call<Result<List<HotKey>>> getHotKeys();
 
     /**
      * 获取置顶文章
      */
     @GET("article/top/json")
-    Call<Response<List<Article>>> getTopArticles();
+    Call<Result<List<Article>>> getTopArticles();
 }
