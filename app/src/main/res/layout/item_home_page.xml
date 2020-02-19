@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="10dp"
+    app:cardBackgroundColor="#FFFFFF"
+    app:contentPadding="8dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/item_home_page_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="面试必备：View得工作原理"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/item_home_page_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="作者：jsyjs"
+            android:layout_below="@id/item_home_page_title"
+            android:layout_marginTop="15dp"
+            android:textSize="@dimen/home_page_text_size"
+            android:layout_marginRight="14dp"/>
+
+        <TextView
+            android:id="@+id/item_home_page_classify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="分类：广场"
+            android:layout_toRightOf="@id/item_home_page_author"
+            android:layout_alignBottom="@id/item_home_page_author"
+            android:textSize="@dimen/home_page_text_size"/>
+
+        <TextView
+            android:id="@+id/item_home_page_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="2020-02-10 00:00"
+            android:layout_alignBottom="@id/item_home_page_classify"/>
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
