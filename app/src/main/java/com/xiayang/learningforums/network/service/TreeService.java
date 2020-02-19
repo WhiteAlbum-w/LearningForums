@@ -1,11 +1,8 @@
 package com.xiayang.learningforums.network.service;
-
 import com.xiayang.learningforums.bean.ArticleList;
-import com.xiayang.learningforums.bean.Response;
+import com.xiayang.learningforums.bean.Result;
 import com.xiayang.learningforums.bean.TreeData;
-
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -23,7 +20,7 @@ public interface TreeService {
      * 主要标识的网站内容的体系结构，二级目录。
      */
     @GET("tree/json")
-    Call<Response<List<TreeData>>> getTreeDatas();
+    Call<Result<List<TreeData>>> getTreeDatas();
 
     /**
      * 知识体系下的文章
@@ -32,7 +29,7 @@ public interface TreeService {
      * @param cid   分类的id，上述二级目录的id
      */
     @GET("article/list/{page}/json?cid={cid}")
-    Call<Response<ArticleList>> getTreeArticles(
+    Call<Result<ArticleList>> getTreeArticles(
             @Path("page") int page,
             @Path("cid") int cid
     );
@@ -44,7 +41,7 @@ public interface TreeService {
      * @param author 作者昵称，不支持模糊匹配。
      */
     @GET("article/list/{page}/json?author={author}")
-    Call<Response<ArticleList>> getAuthorArticles(
+    Call<Result<ArticleList>> getAuthorArticles(
             @Path("page") int page,
             @Path("author") String author
     );

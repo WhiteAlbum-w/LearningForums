@@ -5,10 +5,8 @@ import com.xiayang.learningforums.bean.ArticleList;
 import com.xiayang.learningforums.bean.CommonWebsite;
 import com.xiayang.learningforums.bean.HomePageBanner;
 import com.xiayang.learningforums.bean.HotKey;
-import com.xiayang.learningforums.bean.Response;
-
+import com.xiayang.learningforums.bean.Result;
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -40,30 +38,30 @@ public interface HomePageService {
      * @param page 页码，从零开始
      */
     @GET("article/list/{page}/json")
-    Call<Response<ArticleList>> getHomePageArticleList(@Path("page") int page);
+    Call<Result<ArticleList>> getHomePageArticleList(@Path("page") int page);
 
     /**
      * 获取首页 Banner
      */
     @GET("banner/json")
-    Call<Response<List<HomePageBanner>>> getHomePageBanners();
+    Call<Result<List<HomePageBanner>>> getHomePageBanners();
 
     /**
      * 获取常用网站
      */
     @GET("friend/json")
-    Call<Response<List<CommonWebsite>>> getCommonWebsites();
+    Call<Result<List<CommonWebsite>>> getCommonWebsites();
 
     /**
      * 获取搜索热词
      * 即目前搜索最多的关键词。
      */
     @GET("hotkey/json")
-    Call<Response<List<HotKey>>> getHotKeys();
+    Call<Result<List<HotKey>>> getHotKeys();
 
     /**
      * 获取置顶文章
      */
     @GET("article/top/json")
-    Call<Response<List<Article>>> getTopArticles();
+    Call<Result<List<Article>>> getTopArticles();
 }

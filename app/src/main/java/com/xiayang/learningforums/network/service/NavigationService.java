@@ -1,8 +1,6 @@
 package com.xiayang.learningforums.network.service;
-
 import com.xiayang.learningforums.bean.NavigationData;
-import com.xiayang.learningforums.bean.Response;
-
+import com.xiayang.learningforums.bean.Result;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
@@ -15,5 +13,5 @@ import retrofit2.http.GET;
 public interface NavigationService {
 
     @GET("navi/json")
-    Call<Response<NavigationData>> getNavigationDatas();
+    Call<Result<NavigationData>> getNavigationDatas();
 }

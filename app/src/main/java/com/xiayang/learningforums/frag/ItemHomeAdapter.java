@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.xiayang.learningforums.R;
-import com.xiayang.learningforums.bean.homepage.Article;
+import com.xiayang.learningforums.bean.Article;
 
 import java.util.List;
 

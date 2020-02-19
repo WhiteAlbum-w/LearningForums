@@ -1,10 +1,7 @@
 package com.xiayang.learningforums.network.service;
-
 import com.xiayang.learningforums.bean.Article;
-import com.xiayang.learningforums.bean.Response;
-
+import com.xiayang.learningforums.bean.Result;
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.POST;
@@ -23,7 +20,7 @@ public interface SearchService {
      * @param key  搜索关键词
      */
     @POST("article/query/{page}/json")
-    Call<Response<List<Article>>> searchArticles(
+    Call<Result<List<Article>>> searchArticles(
             @Path("page") int page,
             @Field("k") String key
     );
