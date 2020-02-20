@@ -16,4 +16,7 @@
     <string name="tab_question">问答</string>
 
     <string name="network_failed">网络加载失败</string>
+
+    <string name="author">作者:</string>
+    <string name="classify">分类:</string>
 </resources>

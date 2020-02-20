@@ -4,24 +4,70 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.xiayang.learningforums.R;
+import com.xiayang.learningforums.bean.Article;
+import com.xiayang.learningforums.bean.ArticleList;
+import com.xiayang.learningforums.bean.Result;
+import com.xiayang.learningforums.network.NetworkManager;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class ProjectFragment extends Fragment {
 
-    public ProjectFragment() {
-        // Required empty public constructor
-    }
+    private RecyclerView rvProject;
+    List<Article> datas; //recycler 的数据源
+    private ItemProjectAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_project, container, false);
+        View view = inflater.inflate(R.layout.fragment_project, container, false);
+        rvProject = view.findViewById(R.id.project_rv);
+        datas = new ArrayList<>();
+        // 创建适配器
+        adapter = new ItemProjectAdapter(getContext(), datas);
+        // 设置适配器
+        rvProject.setAdapter(adapter);
+        // 设置布局管理器
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(),
+                RecyclerView.VERTICAL, false);
+        rvProject.setLayoutManager(layoutManager);
+
+//        NetworkManager.getInstance()
+//                .getProjectService()
+//                .getProjectDatas(1,0)
+//                .enqueue(new Callback<Result<ArticleList>>() {
+//                    @Override
+//                    public void onResponse(Call<Result<ArticleList>> call,
+//                                           Response<Result<ArticleList>> response) {
+//                        Result<ArticleList> article = response.body();
+//                        if (article != null) {
+//                            datas.clear();
+//                            datas.addAll(article.data.datas);
+//                            adapter.notifyDataSetChanged();
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<Result<ArticleList>> call, Throwable t) {
+//                        ToastUtils.showShort("网络加载失败");
+//                    }
+//                });
+        return view;
     }
 }

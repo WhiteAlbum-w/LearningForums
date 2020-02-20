@@ -10,13 +10,13 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.ui.AppBarConfiguration;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.xiayang.learningforums.frag.HomeFragment;
 import com.xiayang.learningforums.frag.MyFragmentPageAdapter;
+
 import com.xiayang.learningforums.frag.ProjectFragment;
 import com.xiayang.learningforums.frag.QuestionFragment;
 import com.xiayang.learningforums.frag.SquareFragment;
@@ -24,13 +24,13 @@ import com.xiayang.learningforums.frag.SquareFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawerLayoutMain;
     private TabLayout tabLayoutMain;
     private ViewPager vpMain;
     private List<Fragment> fragmentList; //显示 ViewPager 内容得集合
-    private AppBarConfiguration appBarConfiguration;
+    private NavigationView navigationMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
         fragmentList.add(new QuestionFragment());
         vpMain = findViewById(R.id.view_pager);
         //        ViewPager 得适配器
-        MyFragmentPageAdapter fragmentPageAdapter = new MyFragmentPageAdapter(getSupportFragmentManager(), this, fragmentList);
+        MyFragmentPageAdapter fragmentPageAdapter =
+                new MyFragmentPageAdapter(getSupportFragmentManager(), this, fragmentList);
         //  设置适配器
         vpMain.setAdapter(fragmentPageAdapter);
         //  tab 关联 ViewPager
@@ -63,29 +64,42 @@ public class MainActivity extends AppCompatActivity {
             actionBar.setHomeAsUpIndicator(R.drawable.ic_main_home_black_24dp);
         }
         drawerLayoutMain = findViewById(R.id.drawer_layout);
-        NavigationView navMain = findViewById(R.id.navigation_view);
-        navMain.setCheckedItem(R.id.nav_home);
-        //  导航栏跳转得方法   还没写
-//        navMain.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-//            @Override
-//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//                switch (item.getItemId()) {
-//                    case R.id.nav_home:
-//                        Intent intent = new Intent(MainActivity.this, NewsActivity.class);
-//                        intent.putExtra("id",item.getItemId());
-//                        startActivity(intent);
-//                        break;
-//                    case R.id.nav_navigation:
-////                        drawerLayoutMain.openDrawer(R.layout.fragment_navigation);
-//                        break;
-//                }
-//                drawerLayoutMain.closeDrawer(GravityCompat.START);
-//                return true;
-//            }
-//        });
+        navigationMain = findViewById(R.id.navigation_view);
+        navigationMain.setCheckedItem(R.id.nav_home);
+        //  导航栏跳转得方法
+        navigationMain.setNavigationItemSelectedListener(this);
     }
 
-//    Toolbar 上面得控件点击事件
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.nav_home:
+                drawerLayoutMain.closeDrawer(GravityCompat.START);
+//                NewsActivity.start(MainActivity.this, R.id.nav_home);
+                break;
+            case R.id.nav_navigation:
+                NewsActivity.start(MainActivity.this, R.id.nav_navigation);
+                break;
+            case R.id.nav_system:
+                NewsActivity.start(MainActivity.this, R.id.nav_system);
+                break;
+            case R.id.nav_collect:
+                NewsActivity.start(MainActivity.this, R.id.nav_collect);
+                break;
+            case R.id.nav_chat:
+                NewsActivity.start(MainActivity.this, R.id.nav_chat);
+                break;
+            case R.id.nav_classification:
+                NewsActivity.start(MainActivity.this, R.id.nav_classification);
+                break;
+            default:
+                break;
+        }
+        drawerLayoutMain.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    //    Toolbar 上面得控件点击事件
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {  //导航栏开关

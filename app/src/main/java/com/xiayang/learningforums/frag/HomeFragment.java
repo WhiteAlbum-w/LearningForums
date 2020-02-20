@@ -36,7 +36,6 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home_page, container, false);
         rvPage = view.findViewById(R.id.rv_home_page);
-
         datas = new ArrayList<>();
         // 创建 Recycler 得适配器
         ItemHomeAdapter adapter = new ItemHomeAdapter(getContext(), datas);
