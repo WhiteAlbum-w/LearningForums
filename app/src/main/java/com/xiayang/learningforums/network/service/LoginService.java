@@ -1,7 +1,10 @@
 package com.xiayang.learningforums.network.service;
+
 import com.xiayang.learningforums.bean.Result;
+
 import retrofit2.Call;
 import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 
@@ -13,12 +16,14 @@ import retrofit2.http.POST;
  */
 public interface LoginService {
 
+    @FormUrlEncoded
     @POST("user/login")
     Call<Result<Object>> login(
             @Field("username") String username,
             @Field("password") String password
     );
 
+    @FormUrlEncoded
     @POST("user/register")
     Call<Result<Object>> register(
             @Field("username") String username,
