@@ -17,6 +17,6 @@
 
     <string name="network_failed">网络加载失败</string>
 
-    <string name="author">作者:</string>
-    <string name="classify">分类:</string>
+    <string name="author">作者：%s</string>
+    <string name="classify">分类：%s</string>
 </resources>

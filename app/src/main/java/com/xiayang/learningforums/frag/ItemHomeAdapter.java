@@ -43,11 +43,11 @@ public class ItemHomeAdapter extends RecyclerView.Adapter<ItemHomeAdapter.HomePa
         if (article.author == null) {
             // Context 的 getString 方法有 2 个参数的重载，查下它的用法，
             // 可以解决类中字符串硬编码的问题。
-            holder.tvAuthor.setText(context.getString(R.string.author) + article.shareUser);
+            holder.tvAuthor.setText(context.getString(R.string.author, article.shareUser));
         } else {
-            holder.tvAuthor.setText(context.getString(R.string.author) + article.author);
+            holder.tvAuthor.setText(context.getString(R.string.author, article.author));
         }
-        holder.tvClassify.setText(context.getString(R.string.classify) + article.superChapterName);
+        holder.tvClassify.setText(context.getString(R.string.classify, article.superChapterName));
         holder.tvTime.setText(article.niceShareDate);
     }
 

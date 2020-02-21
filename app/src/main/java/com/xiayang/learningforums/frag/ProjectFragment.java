@@ -4,25 +4,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.blankj.utilcode.util.ToastUtils;
 import com.xiayang.learningforums.R;
 import com.xiayang.learningforums.bean.Article;
-import com.xiayang.learningforums.bean.ArticleList;
-import com.xiayang.learningforums.bean.Result;
-import com.xiayang.learningforums.network.NetworkManager;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,7 +21,7 @@ import retrofit2.Response;
 public class ProjectFragment extends Fragment {
 
     private RecyclerView rvProject;
-    List<Article> datas; //recycler 的数据源
+    private List<Article> datas; //recycler 的数据源
     private ItemProjectAdapter adapter;
 
     @Override

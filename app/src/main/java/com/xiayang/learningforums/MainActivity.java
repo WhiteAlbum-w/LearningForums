@@ -16,7 +16,6 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.xiayang.learningforums.frag.HomeFragment;
 import com.xiayang.learningforums.frag.MyFragmentPageAdapter;
-
 import com.xiayang.learningforums.frag.ProjectFragment;
 import com.xiayang.learningforums.frag.QuestionFragment;
 import com.xiayang.learningforums.frag.SquareFragment;
@@ -73,10 +72,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.nav_home:
-                drawerLayoutMain.closeDrawer(GravityCompat.START);
+            // 像这里的 case 其实就不用判断了，因为作用也只是关闭侧滑栏，
+            // 而关闭的代码你已经写在最下方了
+//            case R.id.nav_home:
+//                drawerLayoutMain.closeDrawer(GravityCompat.START);
 //                NewsActivity.start(MainActivity.this, R.id.nav_home);
-                break;
+//                break;
             case R.id.nav_navigation:
                 NewsActivity.start(MainActivity.this, R.id.nav_navigation);
                 break;
@@ -99,7 +100,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    //    Toolbar 上面得控件点击事件
+    /**
+     * Toolbar 上面得控件点击事件
+     * (像俩斜杠的注释，不要用在方法上，凡是注释需要用在类、接口、方法的，都用这种，俩星号开头)
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {  //导航栏开关
