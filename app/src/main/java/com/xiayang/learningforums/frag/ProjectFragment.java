@@ -11,9 +11,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.xiayang.learningforums.R;
 import com.xiayang.learningforums.bean.Article;
+import com.xiayang.learningforums.bean.ArticleList;
+import com.xiayang.learningforums.bean.Result;
+import com.xiayang.learningforums.network.NetworkManager;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -39,26 +46,26 @@ public class ProjectFragment extends Fragment {
                 RecyclerView.VERTICAL, false);
         rvProject.setLayoutManager(layoutManager);
 
-//        NetworkManager.getInstance()
-//                .getProjectService()
-//                .getProjectDatas(1,0)
-//                .enqueue(new Callback<Result<ArticleList>>() {
-//                    @Override
-//                    public void onResponse(Call<Result<ArticleList>> call,
-//                                           Response<Result<ArticleList>> response) {
-//                        Result<ArticleList> article = response.body();
-//                        if (article != null) {
-//                            datas.clear();
-//                            datas.addAll(article.data.datas);
-//                            adapter.notifyDataSetChanged();
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<Result<ArticleList>> call, Throwable t) {
-//                        ToastUtils.showShort("网络加载失败");
-//                    }
-//                });
+        NetworkManager.getInstance()
+                .getProjectService()
+                .getProjectDatas(1, 1)
+                .enqueue(new Callback<Result<ArticleList>>() {
+                    @Override
+                    public void onResponse(Call<Result<ArticleList>> call,
+                                           Response<Result<ArticleList>> response) {
+                        Result<ArticleList> article = response.body();
+                        if (article != null) {
+                            datas.clear();
+                            datas.addAll(article.data.datas);
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onFailure(Call<Result<ArticleList>> call, Throwable t) {
+
+                    }
+                });
         return view;
     }
 }
