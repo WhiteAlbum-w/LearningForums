@@ -1,11 +1,15 @@
 package com.xiayang.learningforums.network.service;
+
 import com.xiayang.learningforums.bean.ArticleList;
 import com.xiayang.learningforums.bean.Result;
 import com.xiayang.learningforums.bean.TreeData;
+
 import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * 项目接口
@@ -30,9 +34,9 @@ public interface ProjectService {
      * @param page 页码，拼接在链接中，从1开始。
      * @param cid  分类的id，上面项目分类接口
      */
-    @GET("project/list/{page}/json?cid={cid}")
+    @GET("project/list/{page}/json")
     Call<Result<ArticleList>> getProjectDatas(
             @Path("page") int page,
-            @Path("cid") int cid
+            @Query("cid") int cid
     );
 }
