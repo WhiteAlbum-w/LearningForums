@@ -1,5 +1,7 @@
 package com.xiayang.learningforums.frag;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -9,34 +11,57 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.xiayang.learningforums.R;
 
-/**
- * @author Aaron aaronzzxup@gmail.com
- */
+import java.util.List;
+
 public class ItemLeftNavigationAdapter extends RecyclerView.Adapter<ItemLeftNavigationAdapter.LeftNavigationViewHolder> {
+
+    private List<String> dataList;
+    private OnItemClickListener onItemClickListener;
+
+    ItemLeftNavigationAdapter(List<String> dataList, OnItemClickListener onItemClickListener) {
+        this.dataList = dataList;
+        this.onItemClickListener = onItemClickListener;
+    }
 
     @NonNull
     @Override
     public LeftNavigationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        Context context = parent.getContext();
+        View itemView = LayoutInflater.from(context)
+                .inflate(R.layout.recycler_item_left_navigation, parent, false);
+        LeftNavigationViewHolder holder = new LeftNavigationViewHolder(itemView);
+        holder.itemView.setOnClickListener(v -> {
+            if (onItemClickListener != null) {
+                int position = holder.getAdapterPosition();
+                onItemClickListener.onItemClick(v, position);
+            }
+        });
+        return holder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull LeftNavigationViewHolder holder, int position) {
-
+        holder.tvNav.setText(dataList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return dataList.size();
     }
 
-    class LeftNavigationViewHolder extends RecyclerView.ViewHolder {
-
+    /**
+     * 内部类最好使用静态内部类，因为普通嵌套类会隐式持有外部类引用，容易造成内存泄漏
+     */
+    static class LeftNavigationViewHolder extends RecyclerView.ViewHolder {
         private TextView tvNav;
 
-        public LeftNavigationViewHolder(@NonNull View itemView) {
+        LeftNavigationViewHolder(@NonNull View itemView) {
             super(itemView);
             tvNav = itemView.findViewById(R.id.item_left_navigation_title);
         }
+    }
+
+    interface OnItemClickListener {
+        void onItemClick(View itemView, int position);
     }
 }
