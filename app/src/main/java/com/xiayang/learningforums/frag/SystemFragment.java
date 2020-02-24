@@ -67,6 +67,8 @@ public class SystemFragment extends Fragment implements NavigationView.OnNavigat
         }
         setHasOptionsMenu(true);
 
+        rvLeft = view.findViewById(R.id.system_left_rv);
+        rvRight = view.findViewById(R.id.system_right_rv);
         drawerSystem = view.findViewById(R.id.system_drawer);
         navigationSystem = view.findViewById(R.id.system_navigation);
         navigationSystem.setNavigationItemSelectedListener(this);
@@ -90,6 +92,7 @@ public class SystemFragment extends Fragment implements NavigationView.OnNavigat
                     rightSystemDataList.clear();
                     rightSystemDataList.addAll(data.children);
                     rightSystemAdapter.notifyDataSetChanged();
+                    return;
                 }
             }
         });
