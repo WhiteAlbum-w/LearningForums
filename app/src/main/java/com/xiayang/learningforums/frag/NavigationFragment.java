@@ -36,8 +36,8 @@ import retrofit2.Response;
  */
 public class NavigationFragment extends Fragment implements NavigationView.OnNavigationItemSelectedListener {
 
-    private DrawerLayout drNav; // 缩写应该使用约定俗成得缩写
-    private Toolbar barNav; // 缩写应该使用约定俗成得缩写
+    private DrawerLayout drawerNav; // 缩写应该使用约定俗成得缩写
+    private Toolbar toolbarNav; // 缩写应该使用约定俗成得缩写
     private NavigationView navNav;
     private RecyclerView rvLeftNav;
     private RecyclerView rvRightNav;
@@ -54,14 +54,14 @@ public class NavigationFragment extends Fragment implements NavigationView.OnNav
         View view = inflater.inflate(R.layout.fragment_navigation, container, false);
         // 设置 Toolbar
         setHasOptionsMenu(true);
-        barNav = view.findViewById(R.id.navigation_toolbar);
-        drNav = view.findViewById(R.id.navigation_drawer);
+        toolbarNav = view.findViewById(R.id.navigation_toolbar);
+        drawerNav = view.findViewById(R.id.navigation_drawer);
         navNav = view.findViewById(R.id.navigation_navigation);
         rvLeftNav = view.findViewById(R.id.navigation_left_rv);
         rvRightNav = view.findViewById(R.id.navigation_right_rv);
         AppCompatActivity appCompatActivity = (AppCompatActivity) getActivity();
         if (appCompatActivity != null) {
-            appCompatActivity.setSupportActionBar(barNav);
+            appCompatActivity.setSupportActionBar(toolbarNav);
             ActionBar actionBar = appCompatActivity.getSupportActionBar();
             if (actionBar != null) {
                 actionBar.setTitle("Navigation");
@@ -70,31 +70,26 @@ public class NavigationFragment extends Fragment implements NavigationView.OnNav
             }
         }
         navNav.setNavigationItemSelectedListener(this);
-        navNav.setCheckedItem(R.id.nav_navigation);
 
         initLeftNav();
         initRightNav();
 
         request();
 
-        // 创建 RecyclerView 适配器
         return view;
     }
 
     private void initLeftNav() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         rvLeftNav.setLayoutManager(layoutManager);
-        leftNavAdapter = new ItemLeftNavigationAdapter(leftNavDataList, new ItemLeftNavigationAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View itemView, int position) {
-                String name = leftNavDataList.get(position);
-                for (NavigationData data : sourceList) {
-                    if (name.equals(data.name)) {
-                        rightNavDataList.clear();
-                        rightNavDataList.addAll(data.articles);
-                        rightNavAdapter.notifyDataSetChanged();
-                        return;
-                    }
+        leftNavAdapter = new ItemLeftNavigationAdapter(leftNavDataList, (itemView, position) -> {
+            String name = leftNavDataList.get(position);
+            for (NavigationData data : sourceList) {
+                if (name.equals(data.name)) {
+                    rightNavDataList.clear();
+                    rightNavDataList.addAll(data.articles);
+                    rightNavAdapter.notifyDataSetChanged();
+                    return;
                 }
             }
         });
@@ -143,7 +138,7 @@ public class NavigationFragment extends Fragment implements NavigationView.OnNav
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                drNav.openDrawer(GravityCompat.START);
+                drawerNav.openDrawer(GravityCompat.START);
                 break;
         }
         return true;
@@ -176,7 +171,13 @@ public class NavigationFragment extends Fragment implements NavigationView.OnNav
             default:
                 break;
         }
-        drNav.closeDrawer(GravityCompat.START);
+        drawerNav.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        navNav.setCheckedItem(R.id.nav_navigation);
     }
 }

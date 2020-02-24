@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         initView(); //初始化控件函数
     }
 
-    //  初始化控件函数
     private void initView() {
         Toolbar toolbarMain = findViewById(R.id.main_bar);
         toolbarMain.setTitle("");
@@ -64,7 +63,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         drawerLayoutMain = findViewById(R.id.drawer_layout);
         navigationMain = findViewById(R.id.navigation_view);
-        navigationMain.setCheckedItem(R.id.nav_home);
         //  导航栏跳转得方法
         navigationMain.setNavigationItemSelectedListener(this);
     }
@@ -72,12 +70,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            // 像这里的 case 其实就不用判断了，因为作用也只是关闭侧滑栏，
-            // 而关闭的代码你已经写在最下方了
-//            case R.id.nav_home:
-//                drawerLayoutMain.closeDrawer(GravityCompat.START);
-//                NewsActivity.start(MainActivity.this, R.id.nav_home);
-//                break;
             case R.id.nav_navigation:
                 NewsActivity.start(MainActivity.this, R.id.nav_navigation);
                 break;
@@ -112,5 +104,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
         }
         return true;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        navigationMain.setCheckedItem(R.id.nav_home);
     }
 }
