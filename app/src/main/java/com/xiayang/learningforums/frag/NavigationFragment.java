@@ -41,7 +41,7 @@ public class NavigationFragment extends Fragment implements NavigationView.OnNav
     private NavigationView navNav;
     private RecyclerView rvLeftNav;
     private RecyclerView rvRightNav;
-    private RecyclerView.Adapter leftNavAdapter;
+    private ItemLeftNavigationAdapter leftNavigationAdapter;
     private RecyclerView.Adapter rightNavAdapter;
 
     private List<NavigationData> sourceList = new ArrayList<>();
@@ -82,18 +82,24 @@ public class NavigationFragment extends Fragment implements NavigationView.OnNav
     private void initLeftNav() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         rvLeftNav.setLayoutManager(layoutManager);
-        leftNavAdapter = new ItemLeftNavigationAdapter(leftNavDataList, (itemView, position) -> {
-            String name = leftNavDataList.get(position);
-            for (NavigationData data : sourceList) {
-                if (name.equals(data.name)) {
-                    rightNavDataList.clear();
-                    rightNavDataList.addAll(data.articles);
-                    rightNavAdapter.notifyDataSetChanged();
-                    return;
+        leftNavigationAdapter = new ItemLeftNavigationAdapter(getContext(), leftNavDataList);
+        leftNavigationAdapter.setOnItemClickListener(new ItemLeftNavigationAdapter.OnItemClickListener() {
+            @Override
+            public void OnItemClick(View itemView, int position) {
+                leftNavigationAdapter.setThisPosition(position);
+                leftNavigationAdapter.notifyDataSetChanged();
+                String name = leftNavDataList.get(position);
+                for (NavigationData data : sourceList) {
+                    if (name.equals(data.name)) {
+                        rightNavDataList.clear();
+                        rightNavDataList.addAll(data.articles);
+                        rightNavAdapter.notifyDataSetChanged();
+                        return;
+                    }
                 }
             }
         });
-        rvLeftNav.setAdapter(leftNavAdapter);
+        rvLeftNav.setAdapter(leftNavigationAdapter);
     }
 
     private void initRightNav() {
@@ -118,7 +124,7 @@ public class NavigationFragment extends Fragment implements NavigationView.OnNav
                             for (NavigationData navi : result.data) {
                                 leftNavDataList.add(navi.name);
                             }
-                            leftNavAdapter.notifyDataSetChanged();
+                            leftNavigationAdapter.notifyDataSetChanged();
                             if (!result.data.isEmpty()) {
                                 rightNavDataList.clear();
                                 rightNavDataList.addAll(result.data.get(0).articles);

@@ -1,6 +1,7 @@
 package com.xiayang.learningforums.frag;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,25 +16,42 @@ import java.util.List;
 
 public class ItemLeftNavigationAdapter extends RecyclerView.Adapter<ItemLeftNavigationAdapter.LeftNavigationViewHolder> {
 
+    private Context context;
     private List<String> dataList;
     private OnItemClickListener onItemClickListener;
+    private int thisPosition;
 
-    ItemLeftNavigationAdapter(List<String> dataList, OnItemClickListener onItemClickListener) {
-        this.dataList = dataList;
+    public int getThisPosition() {
+        return thisPosition;
+    }
+
+    public void setThisPosition(int thisPosition) {
+        this.thisPosition = thisPosition;
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
+    }
+
+    interface OnItemClickListener {
+        void OnItemClick(View itemView, int position);
+    }
+
+    ItemLeftNavigationAdapter(Context context, List<String> dataList) {
+        this.context = context;
+        this.dataList = dataList;
     }
 
     @NonNull
     @Override
     public LeftNavigationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Context context = parent.getContext();
         View itemView = LayoutInflater.from(context)
                 .inflate(R.layout.recycler_item_left_navigation, parent, false);
         LeftNavigationViewHolder holder = new LeftNavigationViewHolder(itemView);
         holder.itemView.setOnClickListener(v -> {
             if (onItemClickListener != null) {
                 int position = holder.getAdapterPosition();
-                onItemClickListener.onItemClick(v, position);
+                onItemClickListener.OnItemClick(v, position);
             }
         });
         return holder;
@@ -42,6 +60,11 @@ public class ItemLeftNavigationAdapter extends RecyclerView.Adapter<ItemLeftNavi
     @Override
     public void onBindViewHolder(@NonNull LeftNavigationViewHolder holder, int position) {
         holder.tvNav.setText(dataList.get(position));
+        if (position == getThisPosition()) {
+            holder.tvNav.setBackgroundColor(Color.BLUE);
+        } else {
+            holder.tvNav.setBackgroundColor(Color.WHITE);
+        }
     }
 
     @Override
@@ -59,9 +82,5 @@ public class ItemLeftNavigationAdapter extends RecyclerView.Adapter<ItemLeftNavi
             super(itemView);
             tvNav = itemView.findViewById(R.id.item_left_navigation_title);
         }
-    }
-
-    interface OnItemClickListener {
-        void onItemClick(View itemView, int position);
     }
 }

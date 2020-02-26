@@ -2,18 +2,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingTop="12dp"
-    android:paddingBottom="12dp"
+    android:layout_height="55dp"
     android:clipToPadding="false"
+    android:paddingTop="12dp"
     android:background="#05000000">
 
     <TextView
         android:id="@+id/item_left_navigation_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:text="常用网站"
         android:textSize="16sp"
+        android:gravity="center"
         android:layout_centerInParent="true" />
 
 </RelativeLayout>

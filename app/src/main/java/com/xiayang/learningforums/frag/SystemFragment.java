@@ -47,8 +47,6 @@ public class SystemFragment extends Fragment implements NavigationView.OnNavigat
     List<String> leftSystemDataList = new ArrayList<>();
     private List<TreeData> rightSystemDataList = new ArrayList<>();
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -86,6 +84,8 @@ public class SystemFragment extends Fragment implements NavigationView.OnNavigat
         rvLeft.setLayoutManager(layoutManager);
         leftSystemAdapter = new ItemLeftSystemAdapter(getContext(), leftSystemDataList);
         leftSystemAdapter.setOnItemClickListener((view, position) -> {
+            leftSystemAdapter.setThisPosition(position);
+            leftSystemAdapter.notifyDataSetChanged();
             String name = leftSystemDataList.get(position);
             for (TreeData data : sourceList) {
                 if (name.equals(data.name)) {
@@ -95,6 +95,7 @@ public class SystemFragment extends Fragment implements NavigationView.OnNavigat
                     return;
                 }
             }
+
         });
         rvLeft.setAdapter(leftSystemAdapter);
     }

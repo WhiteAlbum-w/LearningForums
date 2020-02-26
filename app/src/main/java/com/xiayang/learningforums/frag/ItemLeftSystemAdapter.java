@@ -1,6 +1,7 @@
 package com.xiayang.learningforums.frag;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,13 +22,22 @@ public class ItemLeftSystemAdapter extends RecyclerView.Adapter<ItemLeftSystemAd
     private Context context;
     List<String> dataList;
     private OnItemClickListener onItemClickListener;
+    private int thisPosition;
+
+    public int getThisPosition() {
+        return thisPosition;
+    }
+
+    public void setThisPosition(int thisPosition) {
+        this.thisPosition = thisPosition;
+    }
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
     }
 
     public interface OnItemClickListener {
-        public void OnItemClick(View view, int position);
+        void onItemClick(View view, int position);
     }
 
     public ItemLeftSystemAdapter(Context context, List<String> dataList) {
@@ -43,15 +53,21 @@ public class ItemLeftSystemAdapter extends RecyclerView.Adapter<ItemLeftSystemAd
         holder.itemView.setOnClickListener(v -> {
             if (onItemClickListener != null) {
                 int position = holder.getAdapterPosition();
-                onItemClickListener.OnItemClick(v, position);
+                onItemClickListener.onItemClick(v, position);
             }
         });
+
         return holder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull LeftSystemViewHolder holder, int position) {
         holder.tvTitle.setText(dataList.get(position));
+        if (position == getThisPosition()) {
+            holder.tvTitle.setBackgroundColor(Color.BLUE);
+        } else {
+            holder.tvTitle.setBackgroundColor(Color.WHITE);
+        }
     }
 
     @Override
