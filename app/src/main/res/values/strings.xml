@@ -19,4 +19,7 @@
 
     <string name="author">作者：%s</string>
     <string name="classify">分类：%s</string>
+    <string name="menu_setting">设置</string>
+    <string name="menu_my">我的</string>
+    <string name="menu_settings">设置</string>
 </resources>

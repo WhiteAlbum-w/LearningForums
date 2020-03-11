@@ -163,6 +163,7 @@ public class NavigationFragment extends Fragment implements NavigationView.OnNav
             // 正确做法是 NewsActivity 写个方法供 Fragment 调用切换 Fragment
             // 这个留给你发挥
             case R.id.nav_system:
+                if (getActivity() != null) getActivity().finish();
                 NewsActivity.start(getActivity(), R.id.nav_system);
                 break;
             case R.id.nav_collect:

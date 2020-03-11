@@ -15,10 +15,6 @@
             android:icon="@drawable/ic_system_black_24dp"
             android:title="@string/menu_system"/>
         <item
-            android:id="@+id/nav_collect"
-            android:icon="@drawable/ic_collect_black_24dp"
-            android:title="@string/menu_collect"/>
-        <item
             android:id="@+id/nav_chat"
             android:icon="@drawable/ic_chat_black_24dp"
             android:title="@string/menu_chat"/>
@@ -27,4 +23,22 @@
             android:icon="@drawable/ic_classification_black_24dp"
             android:title="@string/menu_classification"/>
     </group>
+
+    <item android:title="@string/menu_setting">
+        <menu>
+            <item
+                android:id="@+id/nav_my"
+                android:icon="@drawable/ic_person_black_24dp"
+                android:title="@string/menu_my" />
+            <item
+                android:id="@+id/nav_collect"
+                android:icon="@drawable/ic_collect_black_24dp"
+                android:title="@string/menu_collect" />
+            <item
+                android:id="@+id/nav_setting"
+                android:icon="@drawable/ic_settings_black_24dp"
+                android:title="@string/menu_settings" />
+        </menu>
+    </item>
+
 </menu>

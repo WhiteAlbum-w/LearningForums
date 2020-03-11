@@ -15,7 +15,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="name,icon,label,roundIcon,theme,android:allowBackup">
-        <activity android:name=".NewsActivity"></activity>
+        <activity android:name=".SettingActivity"></activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".NewsActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -63,7 +63,7 @@ public class ProjectFragment extends Fragment {
 
                     @Override
                     public void onFailure(Call<Result<ArticleList>> call, Throwable t) {
-
+                        t.printStackTrace();
                     }
                 });
         return view;

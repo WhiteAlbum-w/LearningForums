@@ -1,5 +1,6 @@
 package com.xiayang.learningforums;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -84,6 +85,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_classification:
                 NewsActivity.start(MainActivity.this, R.id.nav_classification);
+                break;
+            case R.id.nav_my:
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_setting:
+                Intent intent1 = new Intent(MainActivity.this, SettingActivity.class);
+                startActivity(intent1);
                 break;
             default:
                 break;
