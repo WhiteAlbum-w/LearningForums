@@ -1,14 +1,15 @@
-package com.xiayang.learningforums;
+package com.xiayang.learningforums.activity;
+
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-
+import com.xiayang.learningforums.R;
 import com.xiayang.learningforums.frag.ChatFragment;
 import com.xiayang.learningforums.frag.ClassificationFragment;
 import com.xiayang.learningforums.frag.CollectFragment;

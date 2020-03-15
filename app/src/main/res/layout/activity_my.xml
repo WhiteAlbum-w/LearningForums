@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MyActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:id="@+id/login_toolbar"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/my_id"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="35dp"
+            android:background="@drawable/bg_login_activity"
+            android:text="这个是显示名字的啦"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#2196F3" />
+
+        <TextView
+            android:id="@+id/my_landing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="请点击登录"
+            android:textSize="22sp"
+            android:textColor="#020202"
+            android:layout_gravity="center_horizontal" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/my_integral"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="积分：188" />
+
+            <TextView
+                android:id="@+id/my_ranking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="排名：12398"
+                android:textSize="16sp"
+                android:layout_toRightOf="@id/my_integral"
+                android:layout_marginLeft="35dp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="#2196F3" />
+
+        <TextView
+            android:id="@+id/my_rankinglist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="积分排行榜"
+            android:drawableLeft="@drawable/ic_favorite_border_black_24dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            android:textColor="#000000"
+            android:drawablePadding="8dp"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/my_article"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我的文章"
+            android:drawableLeft="@drawable/ic_insert_drive_file_black_24dp"
+            android:layout_marginLeft="10dp"
+            android:drawablePadding="8dp"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:layout_marginTop="15dp" />
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -9,10 +9,11 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:id="@+id/login_toolbar"
+            android:id="@+id/register_toolbar"
             android:background="?attr/colorPrimary"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
@@ -40,7 +41,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/login_username"
+                android:id="@+id/register_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="请输入用户名" />
@@ -51,6 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:gravity="center">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -60,31 +62,50 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/login_password"
+                android:id="@+id/register_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="请输入密码" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/login_login"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="登录"
+            android:layout_marginTop="20dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="密码:"
+                android:textSize="24sp"
+                android:textColor="#000"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/register_repassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="请确认密码" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="确认"
             android:textSize="24sp"
             android:layout_margin="15dp"
             android:background="#009688"
             android:textColor="#ffffff" />
 
         <TextView
-            android:id="@+id/login_registered"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="还没有账号，点击注册！"
+            android:text="注册账号后即可登录"
             android:gravity="center"
             android:textColor="#2196F3"
-            android:textSize="15sp"
-            android:layout_marginTop="15dp" />
+            android:textSize="15sp" />
 
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

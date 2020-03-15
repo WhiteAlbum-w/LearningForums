@@ -1,8 +1,10 @@
-package com.xiayang.learningforums;
+package com.xiayang.learningforums.activity;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.xiayang.learningforums.R;
 
 public class SettingActivity extends AppCompatActivity {
 

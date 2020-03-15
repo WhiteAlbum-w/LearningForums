@@ -1,4 +1,4 @@
-package com.xiayang.learningforums;
+package com.xiayang.learningforums.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +15,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.xiayang.learningforums.R;
 import com.xiayang.learningforums.frag.HomeFragment;
 import com.xiayang.learningforums.frag.MyFragmentPageAdapter;
 import com.xiayang.learningforums.frag.ProjectFragment;
@@ -86,8 +87,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_classification:
                 NewsActivity.start(MainActivity.this, R.id.nav_classification);
                 break;
-            case R.id.nav_my:
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            case R.id.nav_login:
+                Intent intent = new Intent(MainActivity.this, MyActivity.class);
                 startActivity(intent);
                 break;
             case R.id.nav_setting:

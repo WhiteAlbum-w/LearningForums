@@ -3,6 +3,11 @@ apply plugin: 'com.android.application'
 //apply plugin: 'kotlin-android'
 
 android {
+
+    viewBinding {
+        enabled = true
+    }
+
     def android = rootProject.ext.android
     compileSdkVersion android.compileSdkVersion
     defaultConfig {

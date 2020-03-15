@@ -22,4 +22,6 @@
     <string name="menu_setting">设置</string>
     <string name="menu_my">我的</string>
     <string name="menu_settings">设置</string>
+    <string name="title">账号:</string>
+    <string name="Register">注册</string>
 </resources>

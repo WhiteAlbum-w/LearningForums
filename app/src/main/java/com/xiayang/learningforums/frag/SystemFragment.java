@@ -17,8 +17,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
-import com.xiayang.learningforums.NewsActivity;
 import com.xiayang.learningforums.R;
+import com.xiayang.learningforums.activity.NewsActivity;
 import com.xiayang.learningforums.bean.Result;
 import com.xiayang.learningforums.bean.TreeData;
 import com.xiayang.learningforums.network.NetworkManager;
