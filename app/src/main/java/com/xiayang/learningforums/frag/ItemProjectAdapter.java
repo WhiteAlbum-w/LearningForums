@@ -55,7 +55,7 @@ public class ItemProjectAdapter extends RecyclerView.Adapter<ItemProjectAdapter.
         return datas.size();
     }
 
-    class ProjectViewHolder extends RecyclerView.ViewHolder {
+    static class ProjectViewHolder extends RecyclerView.ViewHolder {
         private ImageView iv;
         private TextView tvTitle, tvDesc, tvAuthor, tvClassify, tvTime;
 

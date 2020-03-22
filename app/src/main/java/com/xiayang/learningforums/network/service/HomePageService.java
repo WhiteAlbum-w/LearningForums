@@ -6,7 +6,9 @@ import com.xiayang.learningforums.bean.CommonWebsite;
 import com.xiayang.learningforums.bean.HomePageBanner;
 import com.xiayang.learningforums.bean.HotKey;
 import com.xiayang.learningforums.bean.Result;
+
 import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;

@@ -51,7 +51,7 @@ public class NewsActivity extends AppCompatActivity {
     private void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.nav, fragment);
+        transaction.replace(R.id.home, fragment);
         transaction.commit();
     }
 }

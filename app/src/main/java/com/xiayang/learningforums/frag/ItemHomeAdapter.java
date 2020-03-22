@@ -23,6 +23,9 @@ public class ItemHomeAdapter extends RecyclerView.Adapter<ItemHomeAdapter.HomePa
     private Context context;
     private List<Article> datas;
 
+//    private int page = 0;
+//    private Boolean isFootView = true;
+
     ItemHomeAdapter(Context context, List<Article> datas) {
         this.context = context;
         this.datas = datas;
@@ -43,7 +46,7 @@ public class ItemHomeAdapter extends RecyclerView.Adapter<ItemHomeAdapter.HomePa
         if (article.author == null) {
             // Context 的 getString 方法有 2 个参数的重载，查下它的用法，
             // 可以解决类中字符串硬编码的问题。
-            holder.tvAuthor.setText(context.getString(R.string.author, article.shareUser));
+            holder.tvAuthor.setText(context.getString(R.string.author, article.chapterName));
         } else {
             holder.tvAuthor.setText(context.getString(R.string.author, article.author));
         }
@@ -56,7 +59,7 @@ public class ItemHomeAdapter extends RecyclerView.Adapter<ItemHomeAdapter.HomePa
         return datas.size();
     }
 
-    class HomePageViewHolder extends RecyclerView.ViewHolder {
+    static class HomePageViewHolder extends RecyclerView.ViewHolder {
         TextView tvTitle,tvAuthor,tvClassify,tvTime;
 
         HomePageViewHolder(@NonNull View itemView) {

@@ -97,7 +97,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     /**
      * Toolbar控件上按钮的点击事件监听
-     *
      * @param item
      * @return
      */

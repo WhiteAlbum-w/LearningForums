@@ -21,15 +21,15 @@ public class ItemLeftNavigationAdapter extends RecyclerView.Adapter<ItemLeftNavi
     private OnItemClickListener onItemClickListener;
     private int thisPosition;
 
-    public int getThisPosition() {
+    private int getThisPosition() {
         return thisPosition;
     }
 
-    public void setThisPosition(int thisPosition) {
+    void setThisPosition(int thisPosition) {
         this.thisPosition = thisPosition;
     }
 
-    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+    void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
     }
 
