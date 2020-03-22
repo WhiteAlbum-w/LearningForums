@@ -5,10 +5,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.xiayang.learningforums.R;
 import com.xiayang.learningforums.bean.Article;
 import com.xiayang.learningforums.bean.ArticleList;
@@ -30,12 +34,16 @@ public class ProjectFragment extends Fragment {
     private RecyclerView rvProject;
     private List<Article> datas; //recycler 的数据源
     private ItemProjectAdapter adapter;
+    private SmartRefreshLayout refreshLayout;
+    private int page = 1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_project, container, false);
         rvProject = view.findViewById(R.id.project_rv);
+        refreshLayout = view.findViewById(R.id.project_refresh);
+
         datas = new ArrayList<>();
         // 创建适配器
         adapter = new ItemProjectAdapter(getContext(), datas);
@@ -46,16 +54,37 @@ public class ProjectFragment extends Fragment {
                 RecyclerView.VERTICAL, false);
         rvProject.setLayoutManager(layoutManager);
 
+        getData(); //进入软件先刷新
+
+        // 下拉刷新监听
+        refreshLayout.setOnRefreshListener(refreshLayout -> {
+            getData();
+            refreshLayout.finishRefresh(500);
+        });
+        // 上拉加载监听
+        refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                page++;
+                getData();
+                refreshLayout.finishLoadMore(500);
+            }
+        });
+
+        return view;
+    }
+
+    private void getData() {
         NetworkManager.getInstance()
                 .getProjectService()
-                .getProjectDatas(1, 1)
+                .getProjectDatas(page, 1)
                 .enqueue(new Callback<Result<ArticleList>>() {
                     @Override
                     public void onResponse(Call<Result<ArticleList>> call,
                                            Response<Result<ArticleList>> response) {
                         Result<ArticleList> article = response.body();
                         if (article != null) {
-                            datas.clear();
+//                            datas.clear();
                             datas.addAll(article.data.datas);
                         }
                         adapter.notifyDataSetChanged();
@@ -66,6 +95,5 @@ public class ProjectFragment extends Fragment {
                         t.printStackTrace();
                     }
                 });
-        return view;
     }
 }
