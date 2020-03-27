@@ -34,7 +34,7 @@ import retrofit2.Response;
 public class HomeFragment extends Fragment {
 
     private RecyclerView rvPage;
-    private SmartRefreshLayout refreshLayout;
+    private SmartRefreshLayout refreshLayout;  // 刷新的控件
     private List<Article> datas;  // RecyclerView 得数据源
     private ItemHomeAdapter adapter;
     private int page = 0;

@@ -6,6 +6,7 @@ import com.xiayang.learningforums.network.service.NavigationService;
 import com.xiayang.learningforums.network.service.ProjectService;
 import com.xiayang.learningforums.network.service.SearchService;
 import com.xiayang.learningforums.network.service.TreeService;
+import com.xiayang.learningforums.network.service.User_ArticleService;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -26,6 +27,7 @@ public final class NetworkManager {
     private ProjectService projectService;
     private LoginService loginService;
     private SearchService searchService;
+    private User_ArticleService userArticleService;
 
     public static NetworkManager getInstance() {
         return Holder.INSTANCE;
@@ -42,6 +44,7 @@ public final class NetworkManager {
         projectService = retrofit.create(ProjectService.class);
         loginService = retrofit.create(LoginService.class);
         searchService = retrofit.create(SearchService.class);
+        userArticleService = retrofit.create(User_ArticleService.class);
     }
 
     public HomePageService getHomePageService() {
@@ -66,6 +69,10 @@ public final class NetworkManager {
 
     public SearchService getSearchService() {
         return searchService;
+    }
+
+    public User_ArticleService getUserArticleService() {
+        return userArticleService;
     }
 
     private static class Holder {
