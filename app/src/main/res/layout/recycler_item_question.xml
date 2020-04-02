@@ -13,44 +13,42 @@
     app:contentPadding="8dp">
 
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/item_home_page_title"
+            android:id="@+id/item_question_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="面试必备：View得工作原理"
+            android:text="每日一问|Fragment是如何被存储与恢复的"
             android:textColor="#000"
             android:textSize="15sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/item_home_page_author"
+            android:id="@+id/item_question_author"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="作者：jsyjs"
-            android:layout_below="@id/item_home_page_title"
-            android:layout_marginTop="15dp"
-            android:textSize="@dimen/home_page_text_size"
-            android:layout_marginRight="14dp"/>
+            android:text="xiaoyang"
+            android:layout_below="@id/item_question_title"
+            android:layout_marginTop="5dp"/>
 
         <TextView
-            android:id="@+id/item_home_page_classify"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="分类：广场"
-            android:layout_toRightOf="@id/item_home_page_author"
-            android:layout_alignBottom="@id/item_home_page_author"
-            android:textSize="@dimen/home_page_text_size"/>
+            android:text="问答/官方"
+            android:layout_alignBottom="@id/item_question_author"
+            android:layout_toRightOf="@id/item_question_author"
+            android:layout_marginLeft="15dp"/>
 
         <TextView
-            android:id="@+id/item_home_page_time"
+            android:id="@+id/item_question_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:text="2020-02-10 00:00"
-            android:layout_alignBottom="@id/item_home_page_classify"/>
+            android:text="2020-0326 00:10"
+            android:layout_alignParentEnd="true"
+            android:layout_alignBottom="@id/item_question_author"/>
 
     </RelativeLayout>
+
 </androidx.cardview.widget.CardView>

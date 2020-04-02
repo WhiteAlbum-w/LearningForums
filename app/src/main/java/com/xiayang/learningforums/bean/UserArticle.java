@@ -8,7 +8,7 @@ import java.util.List;
  * date   : 2020/3/25
  * desc   : 广场数据
  */
-public final class User_Article {
+public final class UserArticle {
 
     /**
      * curPage : 1
@@ -20,12 +20,12 @@ public final class User_Article {
      * total : 1297
      */
 
-    private int curPage;
-    private int offset;
-    private boolean over;
-    private int pageCount;
-    private int size;
-    private int total;
-    private List<Article> datas;
+    public int curPage;
+    public int offset;
+    public boolean over;
+    public int pageCount;
+    public int size;
+    public int total;
+    public List<Article> datas;
 
 }

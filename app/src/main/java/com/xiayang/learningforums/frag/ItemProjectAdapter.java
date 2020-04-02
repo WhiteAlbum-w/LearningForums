@@ -1,6 +1,7 @@
 package com.xiayang.learningforums.frag;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.xiayang.learningforums.R;
 import com.xiayang.learningforums.bean.Article;
+import com.xiayang.learningforums.web.NetWebActivity;
 
 import java.util.List;
 
@@ -48,6 +50,18 @@ public class ItemProjectAdapter extends RecyclerView.Adapter<ItemProjectAdapter.
         holder.tvAuthor.setText(article.author);
         holder.tvClassify.setText(article.superChapterName);
         holder.tvTime.setText(article.niceDate);
+
+        // 点击事件的监听
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int adapterPosition = holder.getAdapterPosition();
+                Article art = datas.get(adapterPosition);
+                Intent intent = new Intent(context, NetWebActivity.class);
+                intent.putExtra("data", art.link);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

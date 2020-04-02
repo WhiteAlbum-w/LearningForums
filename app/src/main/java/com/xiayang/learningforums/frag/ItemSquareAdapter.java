@@ -43,7 +43,7 @@ public class ItemSquareAdapter extends RecyclerView.Adapter<ItemSquareAdapter.Sq
         Article datas = this.datas.get(position);
         holder.tvTitle.setText(datas.title);
         holder.tvAuthor.setText(datas.shareUser);
-        holder.tvTime.setText(datas.niceDate);
+        holder.tvTime.setText(datas.niceShareDate);
     }
 
     @Override

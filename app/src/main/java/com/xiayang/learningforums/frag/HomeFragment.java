@@ -35,8 +35,10 @@ public class HomeFragment extends Fragment {
 
     private RecyclerView rvPage;
     private SmartRefreshLayout refreshLayout;  // 刷新的控件
+
     private List<Article> datas;  // RecyclerView 得数据源
     private ItemHomeAdapter adapter;
+
     private int page = 0;
 
 
@@ -46,6 +48,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home_page, container, false);
         rvPage = view.findViewById(R.id.rv_home_page);
+
         datas = new ArrayList<>();
         // 创建 Recycler 得适配器
         adapter = new ItemHomeAdapter(getContext(), datas);
@@ -65,7 +68,6 @@ public class HomeFragment extends Fragment {
         refreshLayout.setEnableLoadMore(true);
         //内容不满一页时不能开启上拉加载功能
         refreshLayout.setEnableLoadMoreWhenContentNotFull(true);
-
         refreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
@@ -82,6 +84,7 @@ public class HomeFragment extends Fragment {
                 refreshLayout.finishLoadMore(500);
             }
         });
+
         return view;
     }
 

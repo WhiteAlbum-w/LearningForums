@@ -1,7 +1,7 @@
 package com.xiayang.learningforums.network.service;
 
 import com.xiayang.learningforums.bean.Result;
-import com.xiayang.learningforums.bean.User_Article;
+import com.xiayang.learningforums.bean.UserArticle;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -13,7 +13,7 @@ import retrofit2.http.Path;
  * date   : 2020/3/22
  * desc   : 广场相关
  */
-public interface User_ArticleService {
+public interface UserArticleService {
 
     /**
      *
@@ -23,5 +23,5 @@ public interface User_ArticleService {
      * 可能出现返回 列表数据 < 每页数据，因为有自见的文章被过滤掉了。
      */
     @GET("user_article/list/{page}/json")
-    Call<Result<User_Article>> getUserArticle(@Path("page") int page);
+    Call<Result<UserArticle>> getUserArticle(@Path("page") int page);
 }

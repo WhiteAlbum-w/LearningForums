@@ -4,15 +4,17 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.xiayang.learningforums.R;
 import com.xiayang.learningforums.bean.Article;
 import com.xiayang.learningforums.bean.Result;
-import com.xiayang.learningforums.bean.User_Article;
+import com.xiayang.learningforums.bean.UserArticle;
 import com.xiayang.learningforums.network.NetworkManager;
 
 import java.util.ArrayList;
@@ -29,6 +31,7 @@ public class SquareFragment extends Fragment {
 
     private RecyclerView rvSquare;
     private ItemSquareAdapter adapter;
+    private FloatingActionButton fab;
 
     private List<Article> datas = new ArrayList<>();
 
@@ -38,6 +41,14 @@ public class SquareFragment extends Fragment {
         View itemView = inflater.inflate(R.layout.fragment_square, container, false);
 
         rvSquare = itemView.findViewById(R.id.square_recycler);
+        fab = itemView.findViewById(R.id.item_square_fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "未添加功能", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         // 创建适配器
         adapter = new ItemSquareAdapter(getContext(), datas);
         // 设置适配器
@@ -54,19 +65,20 @@ public class SquareFragment extends Fragment {
         NetworkManager.getInstance()
                 .getUserArticleService()
                 .getUserArticle(0)
-                .enqueue(new Callback<Result<User_Article>>() {
+                .enqueue(new Callback<Result<UserArticle>>() {
                     @Override
-                    public void onResponse(Call<Result<User_Article>> call, Response<Result<User_Article>> response) {
-                        Result<User_Article> result = response.body();
-
-
-
-
+                    public void onResponse(Call<Result<UserArticle>> call, Response<Result<UserArticle>> response) {
+                        Result<UserArticle> result = response.body();
+                        if (result != null) {
+                            datas.clear();
+                            datas.addAll(result.data.datas);
+                            adapter.notifyDataSetChanged();
+                        }
                     }
 
                     @Override
-                    public void onFailure(Call<Result<User_Article>> call, Throwable t) {
-
+                    public void onFailure(Call<Result<UserArticle>> call, Throwable t) {
+                        t.printStackTrace();
                     }
                 });
     }

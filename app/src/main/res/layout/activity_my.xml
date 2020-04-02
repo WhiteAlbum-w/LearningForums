@@ -25,17 +25,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
+        <ImageView
             android:id="@+id/my_id"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_margin="35dp"
-            android:background="@drawable/bg_login_activity"
-            android:text="这个是显示名字的啦"
-            android:gravity="center"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:textColor="#2196F3" />
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center"
+            android:src="@drawable/myimage"/>
 
         <TextView
             android:id="@+id/my_landing"

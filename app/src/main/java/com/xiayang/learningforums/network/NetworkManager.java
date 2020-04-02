@@ -6,7 +6,8 @@ import com.xiayang.learningforums.network.service.NavigationService;
 import com.xiayang.learningforums.network.service.ProjectService;
 import com.xiayang.learningforums.network.service.SearchService;
 import com.xiayang.learningforums.network.service.TreeService;
-import com.xiayang.learningforums.network.service.User_ArticleService;
+import com.xiayang.learningforums.network.service.UserArticleService;
+import com.xiayang.learningforums.network.service.WenDaService;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -27,7 +28,8 @@ public final class NetworkManager {
     private ProjectService projectService;
     private LoginService loginService;
     private SearchService searchService;
-    private User_ArticleService userArticleService;
+    private UserArticleService userArticleService;
+    private WenDaService wenDaService;
 
     public static NetworkManager getInstance() {
         return Holder.INSTANCE;
@@ -44,7 +46,8 @@ public final class NetworkManager {
         projectService = retrofit.create(ProjectService.class);
         loginService = retrofit.create(LoginService.class);
         searchService = retrofit.create(SearchService.class);
-        userArticleService = retrofit.create(User_ArticleService.class);
+        userArticleService = retrofit.create(UserArticleService.class);
+        wenDaService = retrofit.create(WenDaService.class);
     }
 
     public HomePageService getHomePageService() {
@@ -71,8 +74,12 @@ public final class NetworkManager {
         return searchService;
     }
 
-    public User_ArticleService getUserArticleService() {
+    public UserArticleService getUserArticleService() {
         return userArticleService;
+    }
+
+    public WenDaService getWenDaService() {
+        return wenDaService;
     }
 
     private static class Holder {
