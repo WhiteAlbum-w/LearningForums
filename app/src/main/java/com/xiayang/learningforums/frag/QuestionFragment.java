@@ -5,10 +5,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.xiayang.learningforums.R;
 import com.xiayang.learningforums.bean.Article;
 import com.xiayang.learningforums.bean.Result;
@@ -29,6 +33,7 @@ public class QuestionFragment extends Fragment {
     private RecyclerView rvQuestion;
     private List<Article> wenda = new ArrayList<>(); // 问答数据源
     private ItemQuestionAdapter adapter;
+    private int page = 1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,22 +51,38 @@ public class QuestionFragment extends Fragment {
         rvQuestion.setLayoutManager(linearLayoutManager);
 
         getData();
+
+        RefreshLayout refreshLayout = itemView.findViewById(R.id.question_refresh);
+        refreshLayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                getData();
+                refreshLayout.finishRefresh(500);
+            }
+        });
+        refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                page++;
+                getData();
+                refreshLayout.finishLoadMore(500);
+            }
+        });
         return itemView;
     }
 
     private void getData() {
         NetworkManager.getInstance()
                 .getWenDaService()
-                .getWenDa(1)
+                .getWenDa(page)
                 .enqueue(new Callback<Result<WenDa>>() {
                     @Override
                     public void onResponse(Call<Result<WenDa>> call, Response<Result<WenDa>> response) {
                         Result<WenDa> result = response.body();
                         if (result != null) {
-                            wenda.clear();
                             wenda.addAll(result.data.datas);
-                            adapter.notifyDataSetChanged();
                         }
+                        adapter.notifyDataSetChanged();
                     }
 
                     @Override

@@ -1,6 +1,7 @@
 package com.xiayang.learningforums.frag;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.xiayang.learningforums.R;
 import com.xiayang.learningforums.bean.Article;
+import com.xiayang.learningforums.web.NetWebActivity;
 
 import java.util.List;
 
@@ -40,10 +42,21 @@ public class ItemSquareAdapter extends RecyclerView.Adapter<ItemSquareAdapter.Sq
 
     @Override
     public void onBindViewHolder(@NonNull SquareViewHolder holder, int position) {
-        Article datas = this.datas.get(position);
-        holder.tvTitle.setText(datas.title);
-        holder.tvAuthor.setText(datas.shareUser);
-        holder.tvTime.setText(datas.niceShareDate);
+        Article article = datas.get(position);
+        holder.tvTitle.setText(article.title);
+        holder.tvAuthor.setText(article.shareUser);
+        holder.tvTime.setText(article.niceShareDate);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int adapterPosition = holder.getAdapterPosition();
+                Article art = datas.get(adapterPosition);
+                Intent intent = new Intent(context, NetWebActivity.class);
+                intent.putExtra("data", art.link);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
