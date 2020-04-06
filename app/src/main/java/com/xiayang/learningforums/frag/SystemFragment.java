@@ -43,8 +43,8 @@ public class SystemFragment extends Fragment implements NavigationView.OnNavigat
     private ItemLeftSystemAdapter leftSystemAdapter;
     private ItemRightSystemAdapter rightSystemAdapter;
 
-    List<TreeData> sourceList = new ArrayList<>();
-    List<String> leftSystemDataList = new ArrayList<>();
+    private List<TreeData> sourceList = new ArrayList<>();
+    private List<String> leftSystemDataList = new ArrayList<>();
     private List<TreeData> rightSystemDataList = new ArrayList<>();
 
     @Override
@@ -95,7 +95,6 @@ public class SystemFragment extends Fragment implements NavigationView.OnNavigat
                     return;
                 }
             }
-
         });
         rvLeft.setAdapter(leftSystemAdapter);
     }

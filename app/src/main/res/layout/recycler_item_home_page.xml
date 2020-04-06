@@ -22,8 +22,7 @@
             android:layout_height="wrap_content"
             android:text="面试必备：View得工作原理"
             android:textColor="#000"
-            android:textSize="15sp"
-            android:textStyle="bold"/>
+            android:textSize="22sp"/>
 
         <TextView
             android:id="@+id/item_home_page_author"

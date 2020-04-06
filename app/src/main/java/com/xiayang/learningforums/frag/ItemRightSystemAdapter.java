@@ -1,6 +1,7 @@
 package com.xiayang.learningforums.frag;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.xiayang.learningforums.R;
+import com.xiayang.learningforums.activity.TreeDataActivity;
 import com.xiayang.learningforums.bean.TreeData;
 
 import java.util.List;
@@ -39,6 +41,16 @@ public class ItemRightSystemAdapter extends RecyclerView.Adapter<ItemRightSystem
     public void onBindViewHolder(@NonNull RightSystemViewHolder holder, int position) {
         TreeData data = dataList.get(position);
         holder.tvTitle.setText(data.name);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, TreeDataActivity.class);
+                intent.putExtra("title", data.name);
+                intent.putExtra("id", data.id);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

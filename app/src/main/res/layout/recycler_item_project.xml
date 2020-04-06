@@ -32,8 +32,7 @@
             android:text="一个模仿企鹅 FM 界面的 Android 应用;喜马拉雅Kotlin。完全使用 Kotlin 开发。"
             android:singleLine="true"
             android:textColor="#000"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/item_project_desc"

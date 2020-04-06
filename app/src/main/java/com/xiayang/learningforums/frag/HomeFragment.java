@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
@@ -34,7 +33,7 @@ import retrofit2.Response;
 public class HomeFragment extends Fragment {
 
     private RecyclerView rvPage;
-    private SmartRefreshLayout refreshLayout;  // 刷新的控件
+    //private RefreshLayout refreshLayout;  // 刷新的控件
 
     private List<Article> datas;  // RecyclerView 得数据源
     private ItemHomeAdapter adapter;
@@ -61,7 +60,7 @@ public class HomeFragment extends Fragment {
 
         getData(); //进入软件时先调用加载数据
 
-        refreshLayout = view.findViewById(R.id.home_refresh_layout);
+        RefreshLayout refreshLayout = view.findViewById(R.id.home_refresh_layout);
         //是否在加载完成时滚动列表显示新的内容
         refreshLayout.setEnableScrollContentWhenLoaded(true);
         //设置是否启用上拉加载更多（默认启用）

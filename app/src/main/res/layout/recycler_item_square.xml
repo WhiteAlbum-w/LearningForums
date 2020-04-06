@@ -21,9 +21,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="杀不掉的知乎，聊一聊安卓的多任务"
-            android:textSize="15sp"
-            android:textColor="#000"
-            android:textStyle="bold"/>
+            android:textSize="22sp"
+            android:textColor="#000"/>
 
         <TextView
             android:id="@+id/item_square_author"
