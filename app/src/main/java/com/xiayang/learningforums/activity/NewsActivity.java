@@ -10,8 +10,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.xiayang.learningforums.R;
-import com.xiayang.learningforums.frag.ChatFragment;
-import com.xiayang.learningforums.frag.ClassificationFragment;
 import com.xiayang.learningforums.frag.CollectFragment;
 import com.xiayang.learningforums.frag.HomeFragment;
 import com.xiayang.learningforums.frag.NavigationFragment;
@@ -34,10 +32,6 @@ public class NewsActivity extends AppCompatActivity {
                 replaceFragment(new SystemFragment());
             } else if (id == R.id.nav_collect) {
                 replaceFragment(new CollectFragment());
-            } else if (id == R.id.nav_chat) {
-                replaceFragment(new ChatFragment());
-            } else if (id == R.id.nav_classification) {
-                replaceFragment(new ClassificationFragment());
             }
         }
     }

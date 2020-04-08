@@ -105,7 +105,7 @@ public class NavigationFragment extends Fragment implements NavigationView.OnNav
     private void initRightNav() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         rvRightNav.setLayoutManager(layoutManager);
-        rightNavAdapter = new ItemRightNavigationAdapter(rightNavDataList);
+        rightNavAdapter = new ItemRightNavigationAdapter(rightNavDataList, getContext());
         rvRightNav.setAdapter(rightNavAdapter);
     }
 
@@ -168,12 +168,6 @@ public class NavigationFragment extends Fragment implements NavigationView.OnNav
                 break;
             case R.id.nav_collect:
                 NewsActivity.start(getActivity(), R.id.nav_collect);
-                break;
-            case R.id.nav_chat:
-                NewsActivity.start(getActivity(), R.id.nav_chat);
-                break;
-            case R.id.nav_classification:
-                NewsActivity.start(getActivity(), R.id.nav_classification);
                 break;
             default:
                 break;

@@ -75,7 +75,7 @@
 
         <TextView
             android:id="@+id/my_rankinglist"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="积分排行榜"
             android:drawableLeft="@drawable/ic_favorite_border_black_24dp"
@@ -83,11 +83,11 @@
             android:textSize="20dp"
             android:textColor="#000000"
             android:drawablePadding="8dp"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="20dp" />
 
         <TextView
             android:id="@+id/my_article"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="我的文章"
             android:drawableLeft="@drawable/ic_insert_drive_file_black_24dp"
@@ -95,6 +95,18 @@
             android:drawablePadding="8dp"
             android:textColor="#000000"
             android:textSize="20dp"
-            android:layout_marginTop="15dp" />
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:id="@+id/my_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="设置"
+            android:drawableLeft="@drawable/ic_settings_black_24dp"
+            android:layout_marginLeft="10dp"
+            android:drawablePadding="8dp"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp" />
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

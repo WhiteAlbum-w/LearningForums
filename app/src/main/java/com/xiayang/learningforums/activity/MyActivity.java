@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,6 +21,7 @@ public class MyActivity extends AppCompatActivity implements View.OnClickListene
     private ActivityMyBinding viewBinding;
     private SharedPreferences perf;
     private String name;
+    private TextView tvRank, tvArt, tvSetting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,10 @@ public class MyActivity extends AppCompatActivity implements View.OnClickListene
         } else {
             viewBinding.myLanding.setText("请登录");
         }
+
+        tvArt = findViewById(R.id.my_article);
+        tvRank = findViewById(R.id.my_ranking);
+        tvSetting = findViewById(R.id.my_setting);
     }
 
     /**
@@ -87,9 +93,12 @@ public class MyActivity extends AppCompatActivity implements View.OnClickListene
                 }
                 break;
             case R.id.my_rankinglist:
-
+                startActivity(new Intent(this, RankActivity.class));
                 break;
             case R.id.my_article:
+
+                break;
+            case R.id.my_setting:
 
                 break;
         }

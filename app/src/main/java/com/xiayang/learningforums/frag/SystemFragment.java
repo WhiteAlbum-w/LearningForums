@@ -151,12 +151,6 @@ public class SystemFragment extends Fragment implements NavigationView.OnNavigat
             case R.id.nav_collect:
                 NewsActivity.start(getActivity(), R.id.nav_collect);
                 break;
-            case R.id.nav_chat:
-                NewsActivity.start(getActivity(), R.id.nav_chat);
-                break;
-            case R.id.nav_classification:
-                NewsActivity.start(getActivity(), R.id.nav_classification);
-                break;
         }
         drawerSystem.closeDrawer(GravityCompat.START);
         return true;

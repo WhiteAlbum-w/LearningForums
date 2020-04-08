@@ -1,6 +1,7 @@
 package com.xiayang.learningforums.frag;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.xiayang.learningforums.R;
 import com.xiayang.learningforums.bean.Article;
+import com.xiayang.learningforums.web.NetWebActivity;
 
 import java.util.List;
 
@@ -21,15 +23,17 @@ import java.util.List;
 final class ItemRightNavigationAdapter extends RecyclerView.Adapter<ItemRightNavigationAdapter.ViewHolder> {
 
     private List<Article> dataList;
+    private Context context;
 
-    ItemRightNavigationAdapter(List<Article> dataList) {
+    ItemRightNavigationAdapter(List<Article> dataList, Context context) {
         this.dataList = dataList;
+        this.context = context;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Context context = parent.getContext();
+//        Context context = parent.getContext();
         View itemView = LayoutInflater.from(context)
                 .inflate(R.layout.recycler_item_right_navigation, parent, false);
         return new ViewHolder(itemView);
@@ -39,6 +43,17 @@ final class ItemRightNavigationAdapter extends RecyclerView.Adapter<ItemRightNav
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Article article = dataList.get(position);
         holder.tvNav.setText(article.title);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int adapterPosition = holder.getAdapterPosition();
+                Article art = dataList.get(adapterPosition);
+                Intent intent = new Intent(context, NetWebActivity.class);
+                intent.putExtra("data", art.link);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

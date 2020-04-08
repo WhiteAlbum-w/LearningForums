@@ -4,6 +4,7 @@ import com.xiayang.learningforums.network.service.HomePageService;
 import com.xiayang.learningforums.network.service.LoginService;
 import com.xiayang.learningforums.network.service.NavigationService;
 import com.xiayang.learningforums.network.service.ProjectService;
+import com.xiayang.learningforums.network.service.RankService;
 import com.xiayang.learningforums.network.service.SearchService;
 import com.xiayang.learningforums.network.service.TreeService;
 import com.xiayang.learningforums.network.service.UserArticleService;
@@ -30,6 +31,7 @@ public final class NetworkManager {
     private SearchService searchService;
     private UserArticleService userArticleService;
     private WenDaService wenDaService;
+    private RankService rankService;
 
     public static NetworkManager getInstance() {
         return Holder.INSTANCE;
@@ -48,6 +50,7 @@ public final class NetworkManager {
         searchService = retrofit.create(SearchService.class);
         userArticleService = retrofit.create(UserArticleService.class);
         wenDaService = retrofit.create(WenDaService.class);
+        rankService = retrofit.create(RankService.class);
     }
 
     public HomePageService getHomePageService() {
@@ -80,6 +83,10 @@ public final class NetworkManager {
 
     public WenDaService getWenDaService() {
         return wenDaService;
+    }
+
+    public RankService getRankService() {
+        return rankService;
     }
 
     private static class Holder {

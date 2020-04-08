@@ -74,13 +74,20 @@ public class TreeDataActivity extends AppCompatActivity {
 
         getData();
 
-        final RefreshLayout refreshLayout = findViewById(R.id.tree_data_refresh);
-        // refreshLayout.setEnableLoadMoreWhenContentNotFull(false);//是否在列表不满一页时候开启上拉加载功能
+        RefreshLayout refreshLayout = findViewById(R.id.tree_data_refresh);
+        refreshLayout.setEnableLoadMoreWhenContentNotFull(false);//取消内容不满一页时开启上拉加载功能
         refreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
-                getData();
+                //datas.clear();
+                if (page < 0) {
+                    getData();
+                } else {
+                    refreshLayout.finishRefresh();
+                }
+
                 refreshlayout.finishRefresh(2000/*,false*/);//传入false表示刷新失败
+
             }
         });
         refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
@@ -101,6 +108,7 @@ public class TreeDataActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Result<ArticleList>> call, Response<Result<ArticleList>> response) {
                         Result<ArticleList> result = response.body();
+
                         if (result != null) {
                             datas.addAll(result.data.datas);
                             itemTreeDataAdapter.notifyDataSetChanged();
