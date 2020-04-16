@@ -34,7 +34,6 @@ public class HomeFragment extends Fragment {
 
     private RecyclerView rvPage;
     //private RefreshLayout refreshLayout;  // 刷新的控件
-
     private List<Article> datas;  // RecyclerView 得数据源
     private ItemHomeAdapter adapter;
 

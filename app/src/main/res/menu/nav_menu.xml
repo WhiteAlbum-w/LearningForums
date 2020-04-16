@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
+    <group android:id="@+id/group_menu1" android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home_black_24dp"
@@ -14,41 +14,17 @@
             android:id="@+id/nav_system"
             android:icon="@drawable/ic_system_black_24dp"
             android:title="@string/menu_system"/>
-<!--        <item-->
-<!--            android:id="@+id/nav_chat"-->
-<!--            android:icon="@drawable/ic_chat_black_24dp"-->
-<!--            android:title="@string/menu_chat"/>-->
-<!--        <item-->
-<!--            android:id="@+id/nav_classification"-->
-<!--            android:icon="@drawable/ic_classification_black_24dp"-->
-<!--            android:title="@string/menu_classification"/>-->
     </group>
 
-    <item android:title="系统设置">
-        <menu>
-            <item
-                android:id="@+id/nav_login"
-                android:icon="@drawable/ic_person_black_24dp"
-                android:title="@string/menu_my" />
-            <item
-                android:id="@+id/nav_collect"
-                android:icon="@drawable/ic_collect_black_24dp"
-                android:title="@string/menu_collect" />
-        </menu>
-    </item>
+    <group android:id="@+id/group_menu2" android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_login"
+            android:icon="@drawable/ic_person_black_24dp"
+            android:title="@string/menu_my" />
+        <item
+            android:id="@+id/nav_collect"
+            android:icon="@drawable/ic_collect_black_24dp"
+            android:title="@string/menu_collect" />
+    </group>
 
-<!--    <group android:checkableBehavior="single">-->
-<!--        <item-->
-<!--            android:id="@+id/nav_login"-->
-<!--            android:icon="@drawable/ic_person_black_24dp"-->
-<!--            android:title="@string/menu_my" />-->
-<!--        <item-->
-<!--            android:id="@+id/nav_collect"-->
-<!--            android:icon="@drawable/ic_collect_black_24dp"-->
-<!--            android:title="@string/menu_collect" />-->
-<!--        <item-->
-<!--            android:id="@+id/nav_setting"-->
-<!--            android:icon="@drawable/ic_settings_black_24dp"-->
-<!--            android:title="@string/menu_settings" />-->
-<!--    </group>-->
 </menu>

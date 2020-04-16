@@ -27,7 +27,6 @@ public final class Rank {
     public int pageCount;
     public int size;
     public int total;
-    public List<RankList> ranks;
-
+    public List<RankList> datas;
 
 }

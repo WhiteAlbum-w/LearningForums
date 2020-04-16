@@ -15,7 +15,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="name,icon,label,roundIcon,theme,android:allowBackup">
-        <activity android:name=".activity.RankActivity"></activity>
+        <activity android:name=".activity.AddArticleActivity"></activity>
+        <activity android:name=".activity.MyArticleActivity" />
+        <activity android:name=".activity.RankActivity" />
         <activity android:name=".activity.TreeDataActivity" />
         <activity android:name=".activity.TreeActivity" />
         <activity android:name=".web.DisplayImageActivity" />

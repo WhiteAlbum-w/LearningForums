@@ -22,5 +22,4 @@ public final class RankList {
     public int rank;
     public int userId;
     public String username;
-
 }

@@ -1,9 +1,10 @@
 package com.xiayang.learningforums.network.service;
 
+
 import com.xiayang.learningforums.bean.Rank;
+import com.xiayang.learningforums.bean.Result;
 
 import retrofit2.Call;
-import retrofit2.adapter.rxjava2.Result;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 

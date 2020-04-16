@@ -1,5 +1,6 @@
 package com.xiayang.learningforums.frag;
 
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,32 +18,33 @@ import java.util.List;
 public class ItemRankAdapter extends RecyclerView.Adapter<ItemRankAdapter.RankViewHolder> {
 
     private Context context;
-    private List<RankList> ranks;
+    private List<RankList> datas;
 
-    public ItemRankAdapter(Context context, List<RankList> ranks) {
+    public ItemRankAdapter(Context context, List<RankList> datas) {
         this.context = context;
-        this.ranks = ranks;
+        this.datas = datas;
     }
 
     @NonNull
     @Override
     public RankViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(context).inflate(R.layout.recycler_item_rank, parent, false);
+        View itemView = LayoutInflater.from(context)
+                .inflate(R.layout.recycler_item_rank, parent, false);
         RankViewHolder holder = new RankViewHolder(itemView);
         return holder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull RankViewHolder holder, int position) {
-        RankList rank = ranks.get(position);
-        holder.tvId.setText(rank.rank);
-        holder.tvAuthor.setText(rank.username);
-        holder.tvIntegral.setText(rank.coinCount);
+        RankList data = datas.get(position);
+        //holder.tvId.setText(data.rank);
+        //holder.tvIntegral.setText(data.coinCount);
+        //holder.tvAuthor.setText(data.username);
     }
 
     @Override
     public int getItemCount() {
-        return ranks.size();
+        return datas.size();
     }
 
     static class RankViewHolder extends RecyclerView.ViewHolder {

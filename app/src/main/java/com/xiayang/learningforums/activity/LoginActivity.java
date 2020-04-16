@@ -1,9 +1,7 @@
 package com.xiayang.learningforums.activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -16,6 +14,7 @@ import com.xiayang.learningforums.R;
 import com.xiayang.learningforums.bean.Result;
 import com.xiayang.learningforums.databinding.ActivityLoginBinding;
 import com.xiayang.learningforums.network.NetworkManager;
+import com.xiayang.learningforums.utils.SPUtil;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -69,15 +68,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                     Toast.makeText(LoginActivity.this, "密码不能为空", Toast.LENGTH_SHORT).show();
                                 } else if (result != null) {
                                     if (result.data != null) {
-                                        SharedPreferences.Editor editor = getSharedPreferences("data", MODE_PRIVATE).edit();
-                                        editor.putString("name", username);
-                                        editor.putString("pwd", password);
-                                        editor.apply();
-                                        Log.d("dddd", "onResponse: 222" + response.body());
+                                        SPUtil.getInstance().put(LoginActivity.this, "name", username);
+//                                        SharedPreferences.Editor editor = getSharedPreferences("data", MODE_PRIVATE).edit();
+//                                        editor.putString("name", username);
+//                                        editor.putString("pwd", password);
+//                                        editor.apply();
                                         Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
                                         finish();
                                     } else {
-                                        Log.d("dddd", "onResponse: 3333" + response.body());
                                         Toast.makeText(LoginActivity.this, "登陆失败", Toast.LENGTH_SHORT).show();
                                     }
                                 }

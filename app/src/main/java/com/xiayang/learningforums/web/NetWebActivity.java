@@ -4,12 +4,15 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,12 +21,17 @@ import com.xiayang.learningforums.R;
 public class NetWebActivity extends AppCompatActivity {
 
     private WebView webView;
+    private ProgressBar pb;
+    private TextView tvTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_net_web);
         webView = findViewById(R.id.webView);
+        pb = findViewById(R.id.net_web_pb);
+        tvTitle = findViewById(R.id.net_web_title);
+
         // 设置 webview 的信息配置
         WebSettings settings = webView.getSettings();
         // 设置能够加载 js
@@ -48,6 +56,7 @@ public class NetWebActivity extends AppCompatActivity {
                 return false;
             }
 
+
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 super.onPageStarted(view, url, favicon);
@@ -67,7 +76,18 @@ public class NetWebActivity extends AppCompatActivity {
             }
         });
 
-        webView.setWebChromeClient(new WebChromeClient());
+        webView.setWebChromeClient(new WebChromeClient() {
+            // 进度条
+            @Override
+            public void onProgressChanged(WebView view, int newProgress) {
+                if (newProgress == 100) {
+                    pb.setVisibility(View.GONE);
+                } else {
+                    pb.setVisibility(View.VISIBLE);
+                    pb.setProgress(newProgress);
+                }
+            }
+        });
 
         // 因为在 js 当中调用了Android 的代码，所以需要设置通道
         webView.addJavascriptInterface(new NetJavaScriptInterface(this), "imageListener");
