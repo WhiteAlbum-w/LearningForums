@@ -21,6 +21,7 @@ import com.xiayang.learningforums.bean.ArticleList;
 import com.xiayang.learningforums.bean.Result;
 import com.xiayang.learningforums.frag.ItemTreeDataAdapter;
 import com.xiayang.learningforums.network.NetworkManager;
+import com.xiayang.learningforums.utils.StatusBarUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +44,8 @@ public class TreeDataActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tree_data);
+
+        StatusBarUtils.setColor(this,getResources().getColor(R.color.colorPrimary));
 
         toolbar = findViewById(R.id.tree_data_toolbar);
         tvTitle = findViewById(R.id.tree_data_title);

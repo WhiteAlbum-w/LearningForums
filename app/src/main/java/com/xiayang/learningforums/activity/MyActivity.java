@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.xiayang.learningforums.R;
 import com.xiayang.learningforums.databinding.ActivityMyBinding;
 import com.xiayang.learningforums.utils.SPUtil;
+import com.xiayang.learningforums.utils.StatusBarUtils;
 
 public class MyActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -30,6 +31,8 @@ public class MyActivity extends AppCompatActivity implements View.OnClickListene
         setContentView(R.layout.activity_my);
         viewBinding = ActivityMyBinding.inflate(getLayoutInflater());
         setContentView(viewBinding.getRoot());
+
+        StatusBarUtils.setColor(this,getResources().getColor(R.color.colorPrimary));
 
         initView();
     }

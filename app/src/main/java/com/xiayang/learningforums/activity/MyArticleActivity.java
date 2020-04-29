@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.xiayang.learningforums.R;
+import com.xiayang.learningforums.utils.StatusBarUtils;
 
 public class MyArticleActivity extends AppCompatActivity {
     private Toolbar toolbar;
@@ -19,6 +20,8 @@ public class MyArticleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_article);
+
+        StatusBarUtils.setColor(this,getResources().getColor(R.color.colorPrimary));
 
         toolbar = findViewById(R.id.my_article_toolbar);
         toolbar.setTitle("");

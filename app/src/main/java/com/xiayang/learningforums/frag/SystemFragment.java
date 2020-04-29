@@ -1,5 +1,6 @@
 package com.xiayang.learningforums.frag;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -18,10 +19,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.xiayang.learningforums.R;
+import com.xiayang.learningforums.activity.MyActivity;
 import com.xiayang.learningforums.activity.NewsActivity;
 import com.xiayang.learningforums.bean.Result;
 import com.xiayang.learningforums.bean.TreeData;
 import com.xiayang.learningforums.network.NetworkManager;
+import com.xiayang.learningforums.utils.StatusBarUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +54,8 @@ public class SystemFragment extends Fragment implements NavigationView.OnNavigat
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_system, container, false);
+
+        StatusBarUtils.setColor(getContext(), getResources().getColor(R.color.colorPrimary));
 
         toolbarSystem = view.findViewById(R.id.system_toolbar);
         AppCompatActivity appCompatActivity = (AppCompatActivity) getActivity();
@@ -150,6 +155,12 @@ public class SystemFragment extends Fragment implements NavigationView.OnNavigat
                 break;
             case R.id.nav_collect:
                 NewsActivity.start(getActivity(), R.id.nav_collect);
+                break;
+            case R.id.nav_login:
+                Intent intent = new Intent(getActivity(), MyActivity.class);
+                startActivity(intent);
+                break;
+            default:
                 break;
         }
         drawerSystem.closeDrawer(GravityCompat.START);

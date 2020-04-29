@@ -16,6 +16,7 @@ import com.xiayang.learningforums.bean.RankList;
 import com.xiayang.learningforums.bean.Result;
 import com.xiayang.learningforums.frag.ItemRankAdapter;
 import com.xiayang.learningforums.network.NetworkManager;
+import com.xiayang.learningforums.utils.StatusBarUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +38,8 @@ public class RankActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rank);
+
+        StatusBarUtils.setColor(this,getResources().getColor(R.color.colorPrimary));
 
         toolbar = findViewById(R.id.rank_toolbar);
         rv = findViewById(R.id.rank_rv);

@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/net_web_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
@@ -17,7 +18,8 @@
             android:layout_height="wrap_content"
             android:text="网页"
             android:layout_gravity="center"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textColor="#fff"/>
     </androidx.appcompat.widget.Toolbar>
 
     <ProgressBar

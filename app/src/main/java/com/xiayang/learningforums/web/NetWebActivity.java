@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceError;
@@ -14,7 +15,10 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.xiayang.learningforums.R;
 
@@ -23,6 +27,7 @@ public class NetWebActivity extends AppCompatActivity {
     private WebView webView;
     private ProgressBar pb;
     private TextView tvTitle;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +36,14 @@ public class NetWebActivity extends AppCompatActivity {
         webView = findViewById(R.id.webView);
         pb = findViewById(R.id.net_web_pb);
         tvTitle = findViewById(R.id.net_web_title);
+        toolbar = findViewById(R.id.net_web_toolbar);
+        toolbar.setTitle("");
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setHomeButtonEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
         // 设置 webview 的信息配置
         WebSettings settings = webView.getSettings();
@@ -60,12 +73,12 @@ public class NetWebActivity extends AppCompatActivity {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 super.onPageStarted(view, url, favicon);
-                // 开始加载网页是处理，如：显示加载的 进度条
+                // 开始加载网页是处理
             }
 
             @Override
             public void onPageFinished(WebView view, String url) {
-                // 网页加载完成时处理，如：让 进度条 消失， 图片的点击事件
+                // 网页加载完成时处理，如：图片的点击事件
                 addImageClickListener(view);
             }
 
@@ -117,5 +130,11 @@ public class NetWebActivity extends AppCompatActivity {
                 "\t\t\t\t}" +
                 "\t\t\t}" +
                 "\t\t})()");
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        finish();
+        return true;
     }
 }

@@ -13,6 +13,7 @@ import com.xiayang.learningforums.R;
 import com.xiayang.learningforums.bean.Result;
 import com.xiayang.learningforums.databinding.ActivityRegisterBinding;
 import com.xiayang.learningforums.network.NetworkManager;
+import com.xiayang.learningforums.utils.StatusBarUtils;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,6 +28,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         viewBinding = ActivityRegisterBinding.inflate(getLayoutInflater());
         setContentView(viewBinding.getRoot());
+
+        StatusBarUtils.setColor(this,getResources().getColor(R.color.colorPrimary));
 
         initView();
     }

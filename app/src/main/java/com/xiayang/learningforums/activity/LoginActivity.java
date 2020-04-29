@@ -15,6 +15,7 @@ import com.xiayang.learningforums.bean.Result;
 import com.xiayang.learningforums.databinding.ActivityLoginBinding;
 import com.xiayang.learningforums.network.NetworkManager;
 import com.xiayang.learningforums.utils.SPUtil;
+import com.xiayang.learningforums.utils.StatusBarUtils;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -29,6 +30,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         viewBinding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(viewBinding.getRoot());
+
+        StatusBarUtils.setColor(this,getResources().getColor(R.color.colorPrimary));
 
         initView();
 
@@ -73,6 +76,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 //                                        editor.putString("name", username);
 //                                        editor.putString("pwd", password);
 //                                        editor.apply();
+                                        // startActivityForResult(this, );
                                         Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
                                         finish();
                                     } else {

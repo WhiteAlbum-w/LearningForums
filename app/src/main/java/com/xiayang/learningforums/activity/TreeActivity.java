@@ -16,6 +16,7 @@ import com.xiayang.learningforums.R;
 import com.xiayang.learningforums.bean.TreeData;
 import com.xiayang.learningforums.frag.TreeDataFragment;
 import com.xiayang.learningforums.frag.TreePageAdapter;
+import com.xiayang.learningforums.utils.StatusBarUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +37,8 @@ public class TreeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tree);
+
+        StatusBarUtils.setColor(this,getResources().getColor(R.color.colorPrimary));
 
         initView(); // 初始化
         initPager();

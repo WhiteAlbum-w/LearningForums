@@ -1,5 +1,7 @@
 package com.xiayang.learningforums.activity;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -21,6 +23,7 @@ import com.xiayang.learningforums.frag.MyFragmentPageAdapter;
 import com.xiayang.learningforums.frag.ProjectFragment;
 import com.xiayang.learningforums.frag.QuestionFragment;
 import com.xiayang.learningforums.frag.SquareFragment;
+import com.xiayang.learningforums.utils.StatusBarUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,12 +35,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ViewPager vpMain;
     private List<Fragment> fragmentList; //显示 ViewPager 内容得集合
     private NavigationView navigationMain;
+    private Activity activity;
 
+    @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView(); //初始化控件函数
+
+        StatusBarUtils.setColor(this,getResources().getColor(R.color.colorPrimary));
     }
 
     private void initView() {

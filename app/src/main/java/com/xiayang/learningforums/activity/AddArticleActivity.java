@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.xiayang.learningforums.R;
+import com.xiayang.learningforums.utils.StatusBarUtils;
 
 public class AddArticleActivity extends AppCompatActivity {
     private Toolbar toolbar;
@@ -19,6 +20,8 @@ public class AddArticleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_article);
+
+        StatusBarUtils.setColor(this,getResources().getColor(R.color.colorPrimary));
 
         initView();
     }

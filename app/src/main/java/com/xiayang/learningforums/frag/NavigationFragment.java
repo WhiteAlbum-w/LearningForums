@@ -1,5 +1,6 @@
 package com.xiayang.learningforums.frag;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -18,11 +19,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.xiayang.learningforums.R;
+import com.xiayang.learningforums.activity.MyActivity;
 import com.xiayang.learningforums.activity.NewsActivity;
 import com.xiayang.learningforums.bean.Article;
 import com.xiayang.learningforums.bean.NavigationData;
 import com.xiayang.learningforums.bean.Result;
 import com.xiayang.learningforums.network.NetworkManager;
+import com.xiayang.learningforums.utils.StatusBarUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +55,9 @@ public class NavigationFragment extends Fragment implements NavigationView.OnNav
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_navigation, container, false);
+
+        StatusBarUtils.setColor(getContext(), getResources().getColor(R.color.colorPrimary));
+
         // 设置 Toolbar
         setHasOptionsMenu(true);
         toolbarNav = view.findViewById(R.id.navigation_toolbar);
@@ -168,6 +174,10 @@ public class NavigationFragment extends Fragment implements NavigationView.OnNav
                 break;
             case R.id.nav_collect:
                 NewsActivity.start(getActivity(), R.id.nav_collect);
+                break;
+            case R.id.nav_login:
+                Intent intent = new Intent(getActivity(), MyActivity.class);
+                startActivity(intent);
                 break;
             default:
                 break;
