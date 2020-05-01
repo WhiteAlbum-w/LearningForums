@@ -71,12 +71,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                     Toast.makeText(LoginActivity.this, "密码不能为空", Toast.LENGTH_SHORT).show();
                                 } else if (result != null) {
                                     if (result.data != null) {
+                                        // 向上一个活动传递数据
+                                        Intent intent = new Intent();
+                                        intent.putExtra("username", username);
+                                        setResult(RESULT_OK, intent);
+
+                                        // 保存名字到 SharedPreference
                                         SPUtil.getInstance().put(LoginActivity.this, "name", username);
-//                                        SharedPreferences.Editor editor = getSharedPreferences("data", MODE_PRIVATE).edit();
-//                                        editor.putString("name", username);
-//                                        editor.putString("pwd", password);
-//                                        editor.apply();
-                                        // startActivityForResult(this, );
                                         Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
                                         finish();
                                     } else {

@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,6 +25,8 @@ public class MyActivity extends AppCompatActivity implements View.OnClickListene
     private SharedPreferences perf;
     private TextView tvRank, tvArt, tvSetting;
     private String name;
+    private String resultData;
+    private String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +34,29 @@ public class MyActivity extends AppCompatActivity implements View.OnClickListene
         setContentView(R.layout.activity_my);
         viewBinding = ActivityMyBinding.inflate(getLayoutInflater());
         setContentView(viewBinding.getRoot());
-
+        // 沉浸状态栏
         StatusBarUtils.setColor(this,getResources().getColor(R.color.colorPrimary));
-
+        // 初始化
         initView();
+
+        Intent intent = new Intent();
+        username = intent.getStringExtra("username");
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case 1:
+                if (resultCode == RESULT_OK) {
+                    if (data != null) {
+                        resultData = data.getStringExtra("username");
+                        viewBinding.myLanding.setText(resultData);
+                    }
+                }
+                break;
+            default:
+        }
     }
 
     private void initView() {
@@ -51,8 +73,7 @@ public class MyActivity extends AppCompatActivity implements View.OnClickListene
         viewBinding.myRankinglist.setOnClickListener(this);
         viewBinding.myArticle.setOnClickListener(this);
         viewBinding.mySetting.setOnClickListener(this);
-//        perf = getSharedPreferences("data", MODE_PRIVATE);
-//        name = perf.getString("name", "");
+
         name = (String) SPUtil.getInstance()
                 .get(this, "name", "");
         if (!TextUtils.isEmpty(name)) {
@@ -91,25 +112,20 @@ public class MyActivity extends AppCompatActivity implements View.OnClickListene
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.my_landing: // 点击进入登录界面
-                // String name = getIntent().getStringExtra("name");
-
-                if (!TextUtils.isEmpty(name)) {
+                if (!TextUtils.isEmpty(resultData) || !TextUtils.isEmpty(name)) {
                     Toast.makeText(this, "已登录", Toast.LENGTH_SHORT).show();
                 } else {
-                    startActivity(new Intent(MyActivity.this, LoginActivity.class));
+                    startActivityForResult(new Intent(this, LoginActivity.class), 1);
                 }
                 break;
             case R.id.my_rankinglist:
                 startActivity(new Intent(this, RankActivity.class));
                 break;
             case R.id.my_article:
-//                Object name = SPUtil.getInstance()
-//                        .get(MyActivity.this, "name", true);
-//                Log.d("NAME", "onClick: name" + name);
-                if (!TextUtils.isEmpty(name)) {
+                if (!TextUtils.isEmpty(resultData) || !TextUtils.isEmpty(name)) {
                     startActivity(new Intent(this, MyArticleActivity.class));
                 } else {
-                    startActivity(new Intent(this, LoginActivity.class));
+                    startActivityForResult(new Intent(this, LoginActivity.class), 1);
                 }
                 break;
             case R.id.my_setting:
