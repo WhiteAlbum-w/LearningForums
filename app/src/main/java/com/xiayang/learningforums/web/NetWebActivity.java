@@ -100,6 +100,12 @@ public class NetWebActivity extends AppCompatActivity {
                     pb.setProgress(newProgress);
                 }
             }
+
+            @Override
+            public void onReceivedTitle(WebView view, String title) {
+                tvTitle.setText(title);
+                super.onReceivedTitle(view, title);
+            }
         });
 
         // 因为在 js 当中调用了Android 的代码，所以需要设置通道
