@@ -90,6 +90,9 @@ public class SquareFragment extends Fragment {
                     public void onResponse(Call<Result<UserArticle>> call, Response<Result<UserArticle>> response) {
                         Result<UserArticle> result = response.body();
                         if (result != null) {
+                            if (page <= 0) {
+                                datas.clear();
+                            }
                             datas.addAll(result.data.datas);
                             adapter.notifyDataSetChanged();
                         }

@@ -84,7 +84,7 @@ public class ProjectFragment extends Fragment {
                                            Response<Result<ArticleList>> response) {
                         Result<ArticleList> article = response.body();
                         if (article != null) {
-                            if (page <= 0) {
+                            if (page <= 1) {
                                 datas.clear();
                             }
                             datas.addAll(article.data.datas);

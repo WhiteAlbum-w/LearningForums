@@ -80,9 +80,12 @@ public class QuestionFragment extends Fragment {
                     public void onResponse(Call<Result<WenDa>> call, Response<Result<WenDa>> response) {
                         Result<WenDa> result = response.body();
                         if (result != null) {
+                            if (page <= 0) {
+                                wenda.clear();
+                            }
                             wenda.addAll(result.data.datas);
+                            adapter.notifyDataSetChanged();
                         }
-                        adapter.notifyDataSetChanged();
                     }
 
                     @Override
