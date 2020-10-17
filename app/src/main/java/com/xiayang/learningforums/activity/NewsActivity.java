@@ -30,8 +30,6 @@ public class NewsActivity extends AppCompatActivity {
                 replaceFragment(new NavigationFragment());
             } else if (id == R.id.nav_system) {
                 replaceFragment(new SystemFragment());
-            } else if (id == R.id.nav_collect) {
-                replaceFragment(new CollectFragment());
             }
         }
     }

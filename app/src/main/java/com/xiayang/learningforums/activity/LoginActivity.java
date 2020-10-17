@@ -55,7 +55,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.login_login: // 点击登录
+            case R.id.login_login:
+                // 点击登录
                 String username = viewBinding.loginUsername.getText().toString().trim();
                 String password = viewBinding.loginPassword.getText().toString().trim();
                 NetworkManager.getInstance()
@@ -92,9 +93,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             }
                         });
                 break;
-            case R.id.login_registered: // 点击进去注册页面
+            case R.id.login_registered:
+                // 点击进去注册页面
                 startActivity(new Intent(this, RegisterActivity.class));
                 break;
+            default:
         }
     }
 

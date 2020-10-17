@@ -85,9 +85,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_system:
                 NewsActivity.start(MainActivity.this, R.id.nav_system);
                 break;
-            case R.id.nav_collect:
-                NewsActivity.start(MainActivity.this, R.id.nav_collect);
-                break;
+//            case R.id.nav_collect:
+//                NewsActivity.start(MainActivity.this, R.id.nav_collect);
+//                break;
             case R.id.nav_login:
                 Intent intent = new Intent(MainActivity.this, MyActivity.class);
                 startActivity(intent);

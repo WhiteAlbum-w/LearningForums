@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -36,9 +37,9 @@ public class HomeFragment extends Fragment {
     //private RefreshLayout refreshLayout;  // 刷新的控件
     private List<Article> datas;  // RecyclerView 得数据源
     private ItemHomeAdapter adapter;
+    private ProgressBar progressBar;
 
     private int page = 0;
-
 
     @SuppressLint("CheckResult")
     @Override
@@ -46,6 +47,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home_page, container, false);
         rvPage = view.findViewById(R.id.rv_home_page);
+        //progressBar =view.findViewById(R.id.progress_bar);
 
         datas = new ArrayList<>();
         // 创建 Recycler 得适配器
@@ -70,15 +72,15 @@ public class HomeFragment extends Fragment {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
                 getData();
-                refreshLayout.finishRefresh(500);//传入false表示刷新失败
+                refreshLayout.finishRefresh(500/*,false*/);//传入false表示刷新失败
             }
         });
         //上拉监听
         refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-                page++;
-                getData();
+                    page++;
+                    getData();
                 refreshLayout.finishLoadMore(500);
             }
         });
@@ -95,6 +97,9 @@ public class HomeFragment extends Fragment {
                     public void onResponse(Call<Result<ArticleList>> call, Response<Result<ArticleList>> response) {
                         Result<ArticleList> article = response.body();
                         if (article != null) {
+                            if (page <= 0) {
+                                datas.clear();
+                            }
                             datas.addAll(article.data.datas);
                             adapter.notifyDataSetChanged();
                         }

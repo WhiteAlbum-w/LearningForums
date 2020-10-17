@@ -37,9 +37,9 @@ public class ItemRankAdapter extends RecyclerView.Adapter<ItemRankAdapter.RankVi
     @Override
     public void onBindViewHolder(@NonNull RankViewHolder holder, int position) {
         RankList data = datas.get(position);
-        //holder.tvId.setText(data.rank);
-        //holder.tvIntegral.setText(data.coinCount);
-        //holder.tvAuthor.setText(data.username);
+        holder.tvId.setText(data.rank);
+        holder.tvIntegral.setText(data.coinCount);
+        holder.tvAuthor.setText(data.username);
     }
 
     @Override

@@ -30,7 +30,7 @@ import static com.xiayang.learningforums.App.getContext;
 public class RankActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private RecyclerView rv;
-    private int page = 1;
+    private int page = 0;
     private List<RankList> datas = new ArrayList<>();
     private ItemRankAdapter adapter;
 
@@ -73,7 +73,7 @@ public class RankActivity extends AppCompatActivity {
                     public void onResponse(Call<Result<Rank>> call, Response<Result<Rank>> response) {
                         Result<Rank> result = response.body();
                         if (result != null) {
-                            datas.clear();
+                            //datas.clear();
                             datas.addAll(result.data.datas);
                             adapter.notifyDataSetChanged();
                         }

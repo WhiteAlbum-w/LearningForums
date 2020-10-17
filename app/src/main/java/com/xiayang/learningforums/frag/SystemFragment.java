@@ -147,15 +147,19 @@ public class SystemFragment extends Fragment implements NavigationView.OnNavigat
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_home:
-                if (getActivity() != null) getActivity().finish();
+                if (getActivity() != null) {
+                    getActivity().finish();
+                }
                 break;
             case R.id.nav_navigation:
-                if (getActivity() != null) getActivity().finish();
+                if (getActivity() != null) {
+                    getActivity().finish();
+                }
                 NewsActivity.start(getActivity(), R.id.nav_navigation);
                 break;
-            case R.id.nav_collect:
-                NewsActivity.start(getActivity(), R.id.nav_collect);
-                break;
+//            case R.id.nav_collect:
+//                NewsActivity.start(getActivity(), R.id.nav_collect);
+//                break;
             case R.id.nav_login:
                 Intent intent = new Intent(getActivity(), MyActivity.class);
                 startActivity(intent);
@@ -173,6 +177,7 @@ public class SystemFragment extends Fragment implements NavigationView.OnNavigat
             case android.R.id.home:
                 drawerSystem.openDrawer(GravityCompat.START);
                 break;
+            default:
         }
         return true;
     }

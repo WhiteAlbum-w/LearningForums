@@ -172,9 +172,9 @@ public class NavigationFragment extends Fragment implements NavigationView.OnNav
                 if (getActivity() != null) getActivity().finish();
                 NewsActivity.start(getActivity(), R.id.nav_system);
                 break;
-            case R.id.nav_collect:
-                NewsActivity.start(getActivity(), R.id.nav_collect);
-                break;
+//            case R.id.nav_collect:
+//                NewsActivity.start(getActivity(), R.id.nav_collect);
+//                break;
             case R.id.nav_login:
                 Intent intent = new Intent(getActivity(), MyActivity.class);
                 startActivity(intent);

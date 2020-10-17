@@ -84,10 +84,12 @@ public class ProjectFragment extends Fragment {
                                            Response<Result<ArticleList>> response) {
                         Result<ArticleList> article = response.body();
                         if (article != null) {
-//                            datas.clear();
+                            if (page <= 0) {
+                                datas.clear();
+                            }
                             datas.addAll(article.data.datas);
+                            adapter.notifyDataSetChanged();
                         }
-                        adapter.notifyDataSetChanged();
                     }
 
                     @Override

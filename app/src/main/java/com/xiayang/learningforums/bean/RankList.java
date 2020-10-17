@@ -1,5 +1,7 @@
 package com.xiayang.learningforums.bean;
 
+import java.util.List;
+
 /**
  * desc   :
  * <p>

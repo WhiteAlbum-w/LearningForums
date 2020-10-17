@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.xiayang.learningforums.R;
 import com.xiayang.learningforums.databinding.ActivityMyBinding;
+import com.xiayang.learningforums.frag.CollectFragment;
 import com.xiayang.learningforums.utils.SPUtil;
 import com.xiayang.learningforums.utils.StatusBarUtils;
 
@@ -23,7 +24,7 @@ public class MyActivity extends AppCompatActivity implements View.OnClickListene
 
     private ActivityMyBinding viewBinding;
     private SharedPreferences perf;
-    private TextView tvRank, tvArt, tvSetting;
+    private TextView tvRank, tvArt, tvSetting,tvCollect;
     private String name;
     private String resultData;
     private String username;
@@ -73,6 +74,7 @@ public class MyActivity extends AppCompatActivity implements View.OnClickListene
         viewBinding.myRankinglist.setOnClickListener(this);
         viewBinding.myArticle.setOnClickListener(this);
         viewBinding.mySetting.setOnClickListener(this);
+        //viewBinding.myCollect.setOnClickListener(this);
 
         name = (String) SPUtil.getInstance()
                 .get(this, "name", "");
@@ -85,6 +87,7 @@ public class MyActivity extends AppCompatActivity implements View.OnClickListene
         tvArt = findViewById(R.id.my_article);
         tvRank = findViewById(R.id.my_ranking);
         tvSetting = findViewById(R.id.my_setting);
+        //tvCollect = findViewById(R.id.my_collect);
     }
 
     /**
@@ -99,6 +102,7 @@ public class MyActivity extends AppCompatActivity implements View.OnClickListene
             case android.R.id.home:
                 finish();
                 break;
+            default:
         }
         return super.onOptionsItemSelected(item);
     }
@@ -119,7 +123,8 @@ public class MyActivity extends AppCompatActivity implements View.OnClickListene
                 }
                 break;
             case R.id.my_rankinglist:
-                startActivity(new Intent(this, RankActivity.class));
+                Toast.makeText(this, "好像没开发好也", Toast.LENGTH_SHORT).show();
+//                startActivity(new Intent(this, RankActivity.class));
                 break;
             case R.id.my_article:
                 if (!TextUtils.isEmpty(resultData) || !TextUtils.isEmpty(name)) {
@@ -131,6 +136,7 @@ public class MyActivity extends AppCompatActivity implements View.OnClickListene
             case R.id.my_setting:
                 startActivity(new Intent(this, SettingActivity.class));
                 break;
+            default:
         }
     }
 }
